@@ -1,18 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BackController;
+use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\KritiksaranController;
+use App\Http\Controllers\PengaduanController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return redirect()->route('dashboard');
 });
+
+Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
+    Route::get('/', Index::class)->name('dashboard');
+
+    // PENGADUAN ROUTE
+    Route::get('/pengaduan/pembuatan-pengaduan', PengaduanController::class)->name('pembuatan-pengaduan');
+
+    // KRITIK DAN SARAN ROUTE
+    Route::get('/pengaduan/pembuatan-kritik-saran', KritiksaranController::class)->name('pembuatan-kritik-saran');
+});
+
+Route::get('/login', AuthLogin::class)->name('login');
