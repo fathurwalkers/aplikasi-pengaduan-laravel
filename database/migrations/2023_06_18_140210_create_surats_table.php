@@ -6,26 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('surats', function (Blueprint $table) {
+        Schema::create('surat', function (Blueprint $table) {
             $table->id();
+
+            $table->string('surat_kode')->nullable();
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('surats');
+        Schema::dropIfExists('surat');
     }
 };

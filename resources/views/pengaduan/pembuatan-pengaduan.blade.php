@@ -1,3 +1,5 @@
+@extends('layouts.dashboard-layouts')
+
 @push('css')
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables') }}/datatables.min.css"> --}}
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">

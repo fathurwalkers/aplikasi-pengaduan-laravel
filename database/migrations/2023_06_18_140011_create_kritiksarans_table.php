@@ -6,26 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('kritiksarans', function (Blueprint $table) {
+        Schema::create('kritiksaran', function (Blueprint $table) {
             $table->id();
+
+            $table->longText('kritiksaran_keterangan')->nullable();
+            $table->longText('kritiksaran_tipe')->nullable();
+            $table->longText('kritiksaran_pengirim')->nullable();
+            $table->datetime('kritiksaran_tanggal')->nullable();
+
+            $table->unsignedBigInteger('login_id')->nullable()->default(null);
+            $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('kritiksarans');
+        Schema::dropIfExists('kritiksaran');
     }
 };

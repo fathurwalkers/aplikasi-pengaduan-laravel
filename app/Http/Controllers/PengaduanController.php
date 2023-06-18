@@ -48,7 +48,7 @@ class PengaduanController extends Controller
             'updated_at' => now()
         ]);
         $save_pengaduan->save();
-        return redirect()->route('dashboard')->with('status', 'Anda telah berhasil login.');
+        return redirect()->route('dashboard')->with('status', 'Pengaduan telah berhasil dibuat.');
     }
 
 }

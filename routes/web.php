@@ -11,7 +11,7 @@ Route::get('/', function() {
 });
 
 Route::get('/login', [BackController::class, 'login'])->name('login');
-Route::get('/login/proses-login', [BackController::class, 'postlogin'])->name('post-login');
+Route::post('/login/proses-login', [BackController::class, 'postlogin'])->name('post-login');
 
 Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
