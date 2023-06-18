@@ -16,15 +16,6 @@ use App\Models\Berita;
 
 class BackController extends Controller
 {
-    public $users;
-
-    public function __construct()
-    {
-        $session_users = session('data_login');
-        $users = Login::find($session_users->id);
-        $this->users = $users;
-    }
-
     public function postlogin(Request $request)
     {
         $username = $request->login_username;

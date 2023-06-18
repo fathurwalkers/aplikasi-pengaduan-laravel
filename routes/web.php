@@ -14,7 +14,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/', Index::class)->name('dashboard');
 
     // PENGADUAN ROUTE
-    Route::get('/pengaduan/pembuatan-pengaduan', PengaduanController::class)->name('pembuatan-pengaduan');
+    Route::get('/pengaduan/post-pembuatan-pengaduan', [PengaduanController::class, 'post_pembuatan_pengaduan'])->name('post-pembuatan-pengaduan');
 
     // KRITIK DAN SARAN ROUTE
     Route::get('/pengaduan/pembuatan-kritik-saran', KritiksaranController::class)->name('pembuatan-kritik-saran');
