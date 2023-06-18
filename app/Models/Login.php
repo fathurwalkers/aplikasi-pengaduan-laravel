@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Login extends Model
 {
     use HasFactory;
+    protected $table = 'login';
+    protected $guarded = [];
+    protected $primaryKey = 'id';
+
+    public function pengaduan()
+    {
+        return $this->hasMany(Pengaduan::class);
+    }
 }

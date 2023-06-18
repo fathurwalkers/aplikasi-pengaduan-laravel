@@ -15,11 +15,11 @@
                     @endif
                 </div>
             </div>
-            <form wire:submit.prevent="login">
+            <form action="{{ route('post-login') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input wire:model="username" id="username" type="text" class="form-control" autofocus>
+                    <label for="login_username">Username</label>
+                    <input name="login_username" id="login_username" type="text" class="form-control" autofocus>
                     @if (session('status_fail_username'))
                         <div class="invalid-feedback">
                             {{ session('status_fail_username') }}
@@ -28,12 +28,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password
+                    <label for="login_password">Password
                         <a href="forgot.html" class="float-right">
                             Forgot Password?
                         </a>
                     </label>
-                    <input wire:model="password" id="password" type="password" class="form-control">
+                    <input name="login_password" id="login_password" type="password" class="form-control">
                     @if (session('status_fail_password'))
                         <div class="invalid-feedback">
                             {{ session('status_fail_password') }}
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="form-group m-0">
-                    <button class="btn btn-primary btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                         Login
                     </button>
                 </div>

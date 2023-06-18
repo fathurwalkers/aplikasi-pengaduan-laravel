@@ -16,24 +16,21 @@ use App\Models\Berita;
 
 class PengaduanController extends Controller
 {
-    public $users;
-
-    public function __construct()
-    {
-        $session_users = session('data_login');
-        $users = Login::find($session_users->id);
-        $this->users = $users;
-    }
-
     public function pembuatan_pengaduan()
     {
-        return view('pengaduan.pembuatan-pengaduan');
+        $session_users = session('data_login');
+        $users = $session_users;
+        $pengaduan = Pengaduan::all();
+        return view('pengaduan.pembuatan-pengaduan', [
+            'pengaduan' => $pengaduan,
+        ]);
     }
 
     public function post_pembuatan_pengaduan(Request $request)
     {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
         $pengaduan = new Pengaduan;
-        $users = $this->users;
         $pengaduan_keterangan = $request->pengaduan_keterangan;
         $pengaduan_jenis = $request->pengaduan_jenis;
 
@@ -48,7 +45,6 @@ class PengaduanController extends Controller
             'updated_at' => now()
         ]);
         $save_pengaduan->save();
-        return redirect()->route('dashboard')->with('status', 'Pengaduan telah berhasil dibuat.');
+        return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan telah berhasil dibuat.');
     }
-
 }

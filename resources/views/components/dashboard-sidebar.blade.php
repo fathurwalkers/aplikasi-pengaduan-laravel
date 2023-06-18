@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="{{ route('pembuatan-kritik-saran') }}"><i class="fas fa-fire"></i>
+                    <a class="nav-link" href="{{ route('pembuatan-kritiksaran') }}"><i class="fas fa-fire"></i>
                         <span>
                             Kritik dan Saran
                         </span>

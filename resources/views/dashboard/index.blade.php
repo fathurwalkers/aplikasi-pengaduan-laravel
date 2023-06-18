@@ -1,3 +1,4 @@
+@extends('layouts.dashboard-layouts')
 <!-- Section Stack CSS -->
 @push('css')
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables') }}/datatables.min.css"> --}}
