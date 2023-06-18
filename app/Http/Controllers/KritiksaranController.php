@@ -16,5 +16,8 @@ use App\Models\Berita;
 
 class KritiksaranController extends Controller
 {
-    //
+    public function pembuatan_kritiksaran()
+    {
+        return view('kritiksaran.pembuatan-kritiksaran');
+    }
 }

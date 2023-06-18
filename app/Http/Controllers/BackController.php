@@ -16,6 +16,38 @@ use App\Models\Berita;
 
 class BackController extends Controller
 {
+    public function index()
+    {
+        return view('dashboard.index');
+    }
+
+    public function login()
+    {
+        $users = session('data_login');
+        if ($users) {
+            return redirect()->route('dashboard');
+        }
+        return view('login');
+    }
+
+    public function register()
+    {
+        $users = session('data_login');
+        if ($users) {
+            return redirect()->route('dashboard');
+        }
+        return view('register');
+    }
+
+    public function logout(Request $request)
+    {
+        $users = session('data_login');
+        $this->push_histori('LOGOUT');
+        $request->session()->forget(['data_login']);
+        $request->session()->flush();
+        return redirect()->route('login')->with('status', 'Anda telah logout!');
+    }
+
     public function postlogin(Request $request)
     {
         $username = $request->login_username;
