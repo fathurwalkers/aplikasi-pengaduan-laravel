@@ -48,7 +48,7 @@
 
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
-                            <button type="button" class="btn btn-info btn-md">
+                            <button type="submit" class="btn btn-info btn-md">
                                 Proses Kritik dan Saran
                             </button>
                         </div>
@@ -82,31 +82,17 @@
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td>Ketua RT Tidak menghadiri rapat hari ini.</td>
-                                    <td>Kritik</td>
-                                    <td>Surya Lana</td>
-                                    <td>2022/12/21</td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Sebaiknya lapangan di area kompleks B dapat direlokasikan untuk pembuatan kantor
-                                        RT baru.</td>
-                                    <td>Saran</td>
-                                    <td>Ade Rinjani</td>
-                                    <td>2023/04/14</td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td>Bak sampah ditempatkan di tiap jenjang ruas perumahan daripada ditempatkan di
-                                        depan kompleks</td>
-                                    <td>Saran</td>
-                                    <td>Irfan Sanjaya</td>
-                                    <td>2019/09/30</td>
-                                </tr>
+                                @foreach ($kritiksaran as $item)
+                                    <tr>
+                                        <td class="text-center text-dark">{{ $loop->iteration }}</td>
+                                        <td class="text-center text-dark">{{ $item->kritiksaran_keterangan }}</td>
+                                        <td class="text-center text-dark">{{ $item->kritiksaran_tipe }}</td>
+                                        <td class="text-center text-dark">{{ $item->kritiksaran_pengirim }}</td>
+                                        <td class="text-center text-dark">
+                                            {{ date('d/m/Y', strtotime($item->kritiksaran_tanggal)) }}
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>

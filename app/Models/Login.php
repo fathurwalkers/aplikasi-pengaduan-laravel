@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pengaduan;
+use App\Models\Kritiksaran;
 
 class Login extends Model
 {
@@ -15,5 +17,10 @@ class Login extends Model
     public function pengaduan()
     {
         return $this->hasMany(Pengaduan::class);
+    }
+
+    public function kritiksaran()
+    {
+        return $this->hasMany(Kritiksaran::class);
     }
 }

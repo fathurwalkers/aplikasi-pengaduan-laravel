@@ -18,6 +18,30 @@ class KritiksaranController extends Controller
 {
     public function pembuatan_kritiksaran()
     {
-        return view('kritiksaran.pembuatan-kritiksaran');
+        $kritiksaran = Kritiksaran::all();
+        return view('kritiksaran.pembuatan-kritiksaran', [
+            'kritiksaran' => $kritiksaran
+        ]);
+    }
+
+    public function post_pembuatan_kritiksaran(Request $request)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $kritiksaran = new Kritiksaran();
+        $kritiksaran_keterangan = $request->kritiksaran_keterangan;
+        $kritiksaran_tipe = $request->kritiksaran_tipe;
+
+        $save_kritiksaran = $kritiksaran->create([
+            'kritiksaran_keterangan' => $kritiksaran_keterangan,
+            'kritiksaran_tipe' => $kritiksaran_tipe,
+            'kritiksaran_pengirim' => $users->login_nama,
+            'kritiksaran_tanggal' => now(),
+            'login_id' => $users->id,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $save_kritiksaran->save();
+        return redirect()->route('pembuatan-kritiksaran')->with('status', 'Pengaduan telah berhasil dibuat.');
     }
 }

@@ -12,6 +12,7 @@ Route::get('/', function() {
 
 Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::post('/login/proses-login', [BackController::class, 'postlogin'])->name('post-login');
+Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
@@ -22,4 +23,5 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // KRITIK DAN SARAN ROUTE
     Route::get('/kritik-dan-saran/pembuatan-kritiksaran', [KritiksaranController::class, 'pembuatan_kritiksaran'])->name('pembuatan-kritiksaran');
+    Route::post('/kritik-dan-saran/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
 });
