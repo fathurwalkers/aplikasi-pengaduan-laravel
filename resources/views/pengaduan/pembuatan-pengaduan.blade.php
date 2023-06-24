@@ -7,62 +7,74 @@
 
 <!-- Header Content Section -->
 @section('header-content')
-    Pembuatan Pengaduan
+    @switch($users->login_level)
+        @case('user')
+            @section('header-content')
+                Pembuatan Pengaduan
+            @endsection
+        @break
+
+        @case('admin')
+            Kelola Pengaduan
+        @break
+    @endswitch
 @endsection
 
 @section('main-content')
-    <div class="card">
-        <div class="card-body">
-            <div class="container">
+    @if ($users->login_level == 'user')
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
 
-                <form action="{{ route('post-pembuatan-pengaduan') }}" method="POST">
-                    @csrf
+                    <form action="{{ route('post-pembuatan-pengaduan') }}" method="POST">
+                        @csrf
 
-                    <p class="text-dark">Silahkan masukkan pengaduan dan keluhan yang ingin anda sampaikan pada beberapa
-                        form pengajuan
-                        dibawah. Pengaduan anda akan diproses setelah status pengaduan anda telah diverifikasi oleh
-                        Admin. </p>
+                        <p class="text-dark">Silahkan masukkan pengaduan dan keluhan yang ingin anda sampaikan pada beberapa
+                            form pengajuan
+                            dibawah. Pengaduan anda akan diproses setelah status pengaduan anda telah diverifikasi oleh
+                            Admin. </p>
 
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6">
-                            <div class="form-group">
-                                <label for="pengaduan_keterangan">
-                                    <h6>Keterangan</h6>
-                                </label>
-                                <input type="text" class="form-control" id="pengaduan_keterangan"
-                                    placeholder="Masukkan keterangan pengaduan..." name="pengaduan_keterangan">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="pengaduan_keterangan">
+                                        <h6>Keterangan</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="pengaduan_keterangan"
+                                        placeholder="Masukkan keterangan pengaduan..." name="pengaduan_keterangan">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="pengaduan_jenis">
+                                        <h6>Jenis Pengaduan</h6>
+                                    </label>
+                                    <select class="form-control" id="pengaduan_jenis" name="pengaduan_jenis">
+                                        <option default value="Kerusakan">Kerusakan</option>
+                                        <option value="Kehilangan">Kehilangan</option>
+                                        <option value="Masalah Keluarga">Masalah Keluarga</option>
+                                        <option value="Masalah">Masalah</option>
+                                        <option value="Pencurian">Pencurian</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-6 col-md-6 col-lg-6">
-                            <div class="form-group">
-                                <label for="pengaduan_jenis">
-                                    <h6>Jenis Pengaduan</h6>
-                                </label>
-                                <select class="form-control" id="pengaduan_jenis" name="pengaduan_jenis">
-                                    <option default value="Kerusakan">Kerusakan</option>
-                                    <option value="Kehilangan">Kehilangan</option>
-                                    <option value="Masalah Keluarga">Masalah Keluarga</option>
-                                    <option value="Masalah">Masalah</option>
-                                    <option value="Pencurian">Pencurian</option>
-                                </select>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-info btn-md">
+                                    Kirim Pengaduan
+                                </button>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-info btn-md">
-                                Kirim Pengaduan
-                            </button>
-                        </div>
-                    </div>
+                    </form>
 
-                </form>
-
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 
     <div class="card mb-3">
         <div class="card-body">
