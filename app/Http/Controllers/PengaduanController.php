@@ -57,4 +57,35 @@ class PengaduanController extends Controller
         $save_pengaduan->save();
         return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan telah berhasil dibuat.');
     }
+
+    public function konfirmasi_pengaduan(Request $request)
+    {
+        $cek_konfirmasi = $request->buttonkonfirmasi;
+        $id_pengaduan = $request->id_pengaduan;
+        $pengaduan = Pengaduan::find(intval($id_pengaduan));
+        switch ($cek_konfirmasi) {
+            case 'diterima':
+                $update_pengaduan = $pengaduan->update([
+                    'pengaduan_status' => "DITERIMA",
+                    'updated_at' => now()
+                ]);
+                if ($update_pengaduan == true) {
+                    return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan dikonfirmasi dengan status "Diterima".');
+                } else {
+                    return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan telah dibatalkan.');
+                }
+                break;
+            case 'ditolak':
+                $update_pengaduan = $pengaduan->update([
+                    'pengaduan_status' => "DITOLAK",
+                    'updated_at' => now()
+                ]);
+                if ($update_pengaduan == true) {
+                    return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan dikonfirmasi dengan status "Ditolak".');
+                } else {
+                    return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan telah dibatalkan.');
+                }
+                break;
+        }
+    }
 }

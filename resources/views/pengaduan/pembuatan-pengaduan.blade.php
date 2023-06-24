@@ -107,25 +107,85 @@
                                         <td class="text-center text-dark">{{ $item->pengaduan_jenis }}</td>
                                         <td class="text-center text-dark">{{ $item->pengaduan_pengirim }}</td>
                                         <td class="text-center text-dark">
-                                            @switch($item->pengaduan_status)
-                                                @case('PENDING')
-                                                    <button class="btn btn-sm btn-warning text-dark">
-                                                        <b>{{ $item->pengaduan_status }}</b>
-                                                    </button>
-                                                @break
 
-                                                @case('DITERIMA')
-                                                    <button class="btn btn-sm btn-success">
-                                                        <b>{{ $item->pengaduan_status }}</b>
-                                                    </button>
-                                                @break
+                                            <div class="container">
+                                                <div class="row">
+                                                    @switch($users->login_level)
+                                                        @case('admin')
+                                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                            @break
 
-                                                @case('DITOLAK')
-                                                    <button class="btn btn-sm btn-danger text-white">
-                                                        <b>{{ $item->pengaduan_status }}</b>
-                                                    </button>
-                                                @break
-                                            @endswitch
+                                                            @case('user')
+                                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                @break
+                                                            @endswitch
+
+                                                            @switch($item->pengaduan_status)
+                                                                @case('PENDING')
+                                                                    <button class="btn btn-sm btn-warning text-dark">
+                                                                        <b>{{ $item->pengaduan_status }}</b>
+                                                                    </button>
+                                                                @break
+
+                                                                @case('DITERIMA')
+                                                                    <button class="btn btn-sm btn-success">
+                                                                        <b>{{ $item->pengaduan_status }}</b>
+                                                                    </button>
+                                                                @break
+
+                                                                @case('DITOLAK')
+                                                                    <button class="btn btn-sm btn-danger text-white">
+                                                                        <b>{{ $item->pengaduan_status }}</b>
+                                                                    </button>
+                                                                @break
+                                                            @endswitch
+                                                        </div>
+                                                        @if ($users->login_level == 'admin')
+                                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-info dropdown-toggle"
+                                                                        type="button" id="dropdownMenuButton"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        Proses
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton">
+                                                                        <form action="{{ route('konfirmasi-pengaduan') }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            <input type="hidden" name="id_pengaduan"
+                                                                                value="{{ $item->id }}">
+                                                                            <button class="dropdown-item btn" type="submit"
+                                                                                value="diterima"
+                                                                                name="buttonkonfirmasi">Terima</button>
+                                                                            <button class="dropdown-item btn" type="submit"
+                                                                                value="ditolak"
+                                                                                name="buttonkonfirmasi">Tolak</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                    {{-- <div class="row mt-1">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-info dropdown-toggle" type="button"
+                                                                id="dropdownMenuButton" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                Proses
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="#">Action</a>
+                                                                <a class="dropdown-item" href="#">Another action</a>
+                                                                <a class="dropdown-item" href="#">Something else
+                                                                    here</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                                </div>
                                         </td>
                                         <td class="text-center text-dark">
                                             {{ date('d/m/Y', strtotime($item->pengaduan_tanggal)) }}
