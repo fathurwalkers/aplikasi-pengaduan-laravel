@@ -38,7 +38,7 @@ class PengaduanController extends Controller
             'pengaduan_keterangan' => $pengaduan_keterangan,
             'pengaduan_jenis' => $pengaduan_jenis,
             'pengaduan_pengirim' => $users->login_nama,
-            'pengaduan_status' => "DIPROSES",
+            'pengaduan_status' => "PENDING",
             'pengaduan_tanggal' => now(),
             'login_id' => $users->id,
             'created_at' => now(),
