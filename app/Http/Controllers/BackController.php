@@ -77,4 +77,9 @@ class BackController extends Controller
         }
         return back()->with('status', 'Maaf password yang anda masukkan salah!')->withInput();
     }
+
+    public function postregister(Request $request)
+    {
+        //
+    }
 }
