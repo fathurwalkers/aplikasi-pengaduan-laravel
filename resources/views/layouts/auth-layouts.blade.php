@@ -26,7 +26,7 @@
                     @yield('main-content')
 
                     <div class="footer">
-                        Copyright &copy; 2023 &mdash; Fathur Walkers
+                        {{-- Copyright &copy; 2023 &mdash; Fathur Walkers --}}
                     </div>
 
                 </div>

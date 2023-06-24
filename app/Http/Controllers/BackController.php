@@ -84,27 +84,24 @@ class BackController extends Controller
             'login_username'            => 'required',
             'login_password'            => 'required',
         ]);
-
         $login_nama = $request->login_nama;
         $login_telepon = $request->login_telepon;
         $login_email = $request->login_email;
         $login_password2 = $request->login_password2;
-
         $login_username = $validatedLogin['login_username'];
         $login_password = $validatedLogin['login_password'];
-
         if ($validatedLogin["login_password"] !== $request->login_password2) {
             return back()->with('status', 'Password harus sama.')->withInput();
         }
-        $hashPassword                   = Hash::make($validatedLogin["login_password"], [
+        $hashPassword                           = Hash::make($validatedLogin["login_password"], [
             'rounds' => 12,
         ]);
-        $token_raw                      = Str::random(16);
-        $login_token                          = Hash::make($token_raw, [
+        $token_raw                              = Str::random(16);
+        $login_token                            = Hash::make($token_raw, [
             'rounds' => 12,
         ]);
-        $login_level                          = "user";
-        $login_status                   = "verified";
+        $login_level                            = "user";
+        $login_status                           = "verified";
         $login = new login;
         $save_login = $login->create([
             'login_nama' => $login_nama,
@@ -118,10 +115,11 @@ class BackController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-
-        dd($save_login);
-        $save_login->save();
-
-        return redirect()->route('login')->with('status', 'Berhasil melakukan registrasi!');
+        $cek_save_login = $save_login->save();
+        if ($cek_save_login == true) {
+            return redirect()->route('login')->with('status', 'Berhasil melakukan registrasi!');
+        } else {
+            return redirect()->route('register')->with('status', 'Maaf, pendaftaran anda gagal, silahkan mencoba kembali.');
+        }
     }
 }
