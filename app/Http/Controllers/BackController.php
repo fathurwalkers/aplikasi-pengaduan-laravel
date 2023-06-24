@@ -88,6 +88,7 @@ class BackController extends Controller
         $login_nama = $request->login_nama;
         $login_telepon = $request->login_telepon;
         $login_email = $request->login_email;
+        $login_password2 = $request->login_password2;
 
         $login_username = $validatedLogin['login_username'];
         $login_password = $validatedLogin['login_password'];
