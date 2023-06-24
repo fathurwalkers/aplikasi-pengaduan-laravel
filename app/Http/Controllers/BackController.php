@@ -106,7 +106,7 @@ class BackController extends Controller
         $save_login = $login->create([
             'login_nama' => $login_nama,
             'login_username' => $login_username,
-            'login_password' => $login_password,
+            'login_password' => $hashPassword,
             'login_email' => $login_email,
             'login_telepon' => $login_telepon,
             'login_token' => $login_token,

@@ -20,10 +20,20 @@ class PengaduanController extends Controller
     {
         $session_users = session('data_login');
         $users = $session_users;
-        $pengaduan = Pengaduan::all();
-        return view('pengaduan.pembuatan-pengaduan', [
-            'pengaduan' => $pengaduan,
-        ]);
+        switch ($users->login_level) {
+            case 'admin':
+                $pengaduan = Pengaduan::all();
+                return view('pengaduan.pembuatan-pengaduan', [
+                    'pengaduan' => $pengaduan,
+                ]);
+                break;
+            case 'user':
+                $pengaduan = Pengaduan::where('login_id', $users->id)->get();
+                return view('pengaduan.pembuatan-pengaduan', [
+                    'pengaduan' => $pengaduan,
+                ]);
+                break;
+        }
     }
 
     public function post_pembuatan_pengaduan(Request $request)
