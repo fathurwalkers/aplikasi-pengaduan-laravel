@@ -18,10 +18,22 @@ class KritiksaranController extends Controller
 {
     public function pembuatan_kritiksaran()
     {
-        $kritiksaran = Kritiksaran::all();
-        return view('kritiksaran.pembuatan-kritiksaran', [
-            'kritiksaran' => $kritiksaran
-        ]);
+        $session_users = session('data_login');
+        $users = $session_users;
+        switch ($users->login_level) {
+            case 'admin':
+                $kritiksaran = Kritiksaran::all();
+                return view('kritiksaran.pembuatan-kritiksaran', [
+                    'kritiksaran' => $kritiksaran
+                ]);
+                break;
+            case 'user':
+                $kritiksaran = Kritiksaran::where('login_id', $users->id)->get();
+                return view('kritiksaran.pembuatan-kritiksaran', [
+                    'kritiksaran' => $kritiksaran
+                ]);
+                break;
+        }
     }
 
     public function post_pembuatan_kritiksaran(Request $request)
