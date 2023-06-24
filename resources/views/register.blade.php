@@ -17,20 +17,25 @@
             </div>
             <form action="{{ route('post-register') }}" method="POST">
                 @csrf
+
+                <hr />
                 <div class="form-group">
-                    <label for="login_username">Username</label>
-                    <input name="login_username" id="login_username" type="text" class="form-control" autofocus>
+                    <label for="login_nama">Nama Lengkap</label>
+                    <input name="login_nama" id="login_nama" type="text" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="login_email">Email</label>
+                    <input name="login_email" id="login_email" type="text" class="form-control" autofocus>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label for="login_telepon">No. Telepon / HP</label>
+                    <input name="login_telepon" id="login_telepon" type="text" class="form-control" autofocus>
                 </div>
 
                 <div class="form-group">
+                    <label for="login_password">Password</label>
                     <input name="login_password" id="login_password" type="password" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <div class="custom-checkbox custom-control">
-                        <input type="checkbox" id="remember" class="custom-control-input">
-                        <label for="remember" class="custom-control-label">Remember Me</label>
-                    </div>
                 </div>
 
                 <div class="form-group m-0">
