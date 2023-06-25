@@ -19,6 +19,9 @@ Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
 
+    // BERITA ROUTE
+    Route::
+
     // PENGADUAN ROUTE
     Route::group(['prefix' => '/pengaduan'], function () {
         Route::get('/pembuatan-pengaduan', [PengaduanController::class, 'pembuatan_pengaduan'])->name('pembuatan-pengaduan');
@@ -27,6 +30,8 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     });
 
     // KRITIK DAN SARAN ROUTE
-    Route::get('/kritik-dan-saran/pembuatan-kritiksaran', [KritiksaranController::class, 'pembuatan_kritiksaran'])->name('pembuatan-kritiksaran');
-    Route::post('/kritik-dan-saran/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
+    Route::group(['prefix' => '/kritik-dan-saran'], function () {
+        Route::get('/pembuatan-kritiksaran', [KritiksaranController::class, 'pembuatan_kritiksaran'])->name('pembuatan-kritiksaran');
+        Route::post('/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
+    });
 });
