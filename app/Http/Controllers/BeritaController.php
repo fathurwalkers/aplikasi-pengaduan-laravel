@@ -53,7 +53,7 @@ class BeritaController extends Controller
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
         $berita_judul = $request->berita_judul;
-        $berita_isi = $request->editordata;
+        $berita_isi = $request->berita_isi;
         $berita_jenis = $request->berita_jenis;
         $berita_tanggal = $request->berita_tanggal;
         $berita_kode = "1nf0" . strtolower(Str::random(10));

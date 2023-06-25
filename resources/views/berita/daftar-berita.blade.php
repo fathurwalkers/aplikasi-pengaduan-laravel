@@ -64,7 +64,7 @@
                             <label for="berita_isi">
                                 <h6 class="text-dark">Isi Informasi / Pengumuman</h6>
                             </label>
-                            <textarea id="berita_isi" name="editordata" required></textarea>
+                            <textarea id="berita_isi" name="berita_isi" required></textarea>
                         </div>
                     </div>
 
@@ -174,7 +174,57 @@
                                                 <form action="{{ route('update-berita', $item->id) }}" method="POST">
                                                     @csrf
                                                     <div class="modal-body">
-                                                        Apakah anda yakin ingin menghapus data berita ini?
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="berita_judul">
+                                                                        <h6 class="text-dark">Judul Informasi</h6>
+                                                                    </label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="berita_judul"
+                                                                        placeholder="Masukkan keterangan pengaduan..."
+                                                                        name="berita_judul"
+                                                                        value="{{ $item->berita_judul }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="berita_jenis">
+                                                                        <h6 class="text-dark">Jenis Informasi</h6>
+                                                                    </label>
+                                                                    <select class="form-control" id="berita_jenis"
+                                                                        name="berita_jenis">
+                                                                        <option default value="{{ $item->berita_jenis }}">
+                                                                            (Terpilih)
+                                                                            {{ $item->berita_jenis }}
+                                                                        </option>
+                                                                        <option value="pengumuman">Pengumuman</option>
+                                                                        <option value="berita">Berita</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="berita_tanggal">
+                                                                        <h6 class="text-dark">Tanggal Terbit</h6>
+                                                                    </label>
+                                                                    <input type="datetime-local" class="form-control"
+                                                                        id="berita_tanggal" name="berita_tanggal"
+                                                                        value="{{ $item->berita_tanggal }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <label for="berita_isi">
+                                                                    <h6 class="text-dark">Isi Informasi / Pengumuman</h6>
+                                                                </label>
+                                                                <textarea id="" class="summernoteclass" name="editordata" required></textarea>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
@@ -292,6 +342,7 @@
         $(document).ready(function() {
             $('#example').DataTable();
             $('#berita_isi').summernote();
+            $('.summernoteclass').summernote();
         });
     </script>
 @endpush
