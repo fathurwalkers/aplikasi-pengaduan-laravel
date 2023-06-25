@@ -45,7 +45,18 @@ class BeritaController extends Controller
     public function update_berita(Request $request, $id)
     {
         $berita = Berita::find($id);
-        dd($berita);
+        $berita_judul = $request->berita_judul;
+        $berita_isi = $request->berita_isi;
+        $berita_jenis = $request->berita_jenis;
+        $berita_tanggal = $request->berita_tanggal;
+        $update_berita = $berita->update([
+            'berita_judul' => $berita_judul,
+            'berita_isi' => $berita_isi,
+            'berita_jenis' => $berita_jenis,
+            'berita_tanggal' => $berita_tanggal,
+            'updated_at' => now()
+        ]);
+        dd($update_berita);
     }
 
     public function post_berita(Request $request)

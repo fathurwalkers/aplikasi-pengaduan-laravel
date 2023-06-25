@@ -222,14 +222,16 @@
                                                                 <label for="berita_isi">
                                                                     <h6 class="text-dark">Isi Informasi / Pengumuman</h6>
                                                                 </label>
-                                                                <textarea id="" class="summernoteclass" name="editordata" required></textarea>
+                                                                <textarea id="" class="summernoteclass" name="berita_isi" required>
+                                                                    {{ $item->berita_isi }}
+                                                                </textarea>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Batalkan</button>
-                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                        <button type="submit" class="btn btn-warning">Ubah</button>
                                                     </div>
                                                 </form>
                                             </div>
