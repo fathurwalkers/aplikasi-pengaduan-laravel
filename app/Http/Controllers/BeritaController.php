@@ -39,12 +39,16 @@ class BeritaController extends Controller
         $berita_isi = $request->editordata;
         $berita_jenis = $request->berita_jenis;
         $berita_tanggal = $request->berita_tanggal;
+
+        $berita_kode = "1nf0" . strtolower(Str::random(10));
+
         $berita = new Berita;
         $save_berita = $berita->create([
             'berita_judul' => $berita_judul,
             'berita_isi' => $berita_isi,
             'berita_jenis' => $berita_jenis,
             'berita_tanggal' => $berita_tanggal,
+            'berita_kode' => $berita_kode,
             'login_id' => $users->id,
             'created_at' => now(),
             'updated_at' => now()
