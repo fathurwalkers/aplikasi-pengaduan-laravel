@@ -15,6 +15,8 @@ class Berita extends Model
 
     public function login()
     {
-        return $this->belongsTo(Login::class);
+        return $this->belongsTo(Login::class)->withDefault([
+            'login_nama' => 'No Pengirim'
+        ]);
     }
 }

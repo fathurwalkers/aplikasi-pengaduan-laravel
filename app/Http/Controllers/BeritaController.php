@@ -13,6 +13,7 @@ use App\Models\Kritiksaran;
 use App\Models\Keuangan;
 use App\Models\Surat;
 use App\Models\Berita;
+use Carbon\Carbon;
 
 class BeritaController extends Controller
 {
@@ -27,6 +28,32 @@ class BeritaController extends Controller
             ]);
         } else {
             return redirect()->route('dashboard')->with('status', 'Maaf anda tidak dapat mengakses Halaman yang dituju.');
+        }
+    }
+
+    public function post_berita(Request $request)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $berita_judul = $request->berita_judul;
+        $berita_isi = $request->editordata;
+        $berita_jenis = $request->berita_jenis;
+        $berita_tanggal = $request->berita_tanggal;
+        $berita = new Berita;
+        $save_berita = $berita->create([
+            'berita_judul' => $berita_judul,
+            'berita_isi' => $berita_isi,
+            'berita_jenis' => $berita_jenis,
+            'berita_tanggal' => $berita_tanggal,
+            'login_id' => $users->id,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $cek_save_berita = $save_berita->save();
+        if ($cek_save_berita == true) {
+            return redirect()->route('daftar-berita')->with('status', 'Informasi baru telah berhasil ditambahkan!');
+        } else {
+            return redirect()->route('daftar-berita')->with('status', 'Terjadi kesalahan. Informasi tidak dapat ditambahkan.');
         }
     }
 }

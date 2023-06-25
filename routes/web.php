@@ -26,6 +26,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
             return redirect()->route('daftar-berita');
         });
         Route::get('/daftar-berita', [BeritaController::class, 'daftar_berita'])->name('daftar-berita');
+        Route::post('/post-berita', [BeritaController::class, 'post_berita'])->name('post-berita');
     });
 
     // PENGADUAN ROUTE
