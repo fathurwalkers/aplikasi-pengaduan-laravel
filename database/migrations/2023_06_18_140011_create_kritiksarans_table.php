@@ -12,8 +12,8 @@ return new class extends Migration
             $table->id();
 
             $table->longText('kritiksaran_keterangan')->nullable();
-            $table->longText('kritiksaran_tipe')->nullable();
-            $table->longText('kritiksaran_pengirim')->nullable();
+            $table->string('kritiksaran_tipe')->nullable();
+            $table->string('kritiksaran_pengirim')->nullable();
             $table->datetime('kritiksaran_tanggal')->nullable();
 
             $table->unsignedBigInteger('login_id')->nullable()->default(null);

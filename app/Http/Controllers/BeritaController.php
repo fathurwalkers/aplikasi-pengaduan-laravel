@@ -16,5 +16,14 @@ use App\Models\Berita;
 
 class BeritaController extends Controller
 {
-    //
+    public function daftar_berita()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        dd($users);
+        $berita = Berita::all();
+        return view('berita.daftar-berita', [
+            'berita' => $berita
+        ]);
+    }
 }

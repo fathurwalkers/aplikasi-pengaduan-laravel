@@ -10,6 +10,14 @@ return new class extends Migration
     {
         Schema::create('berita', function (Blueprint $table) {
             $table->id();
+
+            $table->longText('berita_judul')->nullable();
+            $table->longText('berita_isi')->nullable();
+            $table->string('berita_jenis')->nullable();
+
+            $table->unsignedBigInteger('login_id')->nullable()->default(null);
+            $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

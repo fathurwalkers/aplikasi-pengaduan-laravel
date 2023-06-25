@@ -8,12 +8,8 @@
 <!-- Header Content Section -->
 @section('header-content')
     @switch($users->login_level)
-        @case('user')
-            Pembuatan Kritik dan Saran
-        @break
-
         @case('admin')
-            Kelola Kritik dan Saran
+            Kelola Berita
         @break
     @endswitch
 @endsection
@@ -92,7 +88,7 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($kritiksaran as $item)
+                                @foreach ($berita as $item)
                                     <tr>
                                         <td class="text-center text-dark">{{ $loop->iteration }}</td>
                                         <td class="text-dark">{{ $item->kritiksaran_keterangan }}</td>
