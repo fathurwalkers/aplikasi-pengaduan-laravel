@@ -19,9 +19,8 @@
         <div class="container h-100">
             <div class="row justify-content-md-center h-100">
                 <div class="card-wrapper">
-                    <div class="brand">
-                        <img src="{{ asset('assets/auth') }}/img/logo.jpg" alt="logo">
-                    </div>
+                    <br />
+                    <br />
 
                     @yield('main-content')
 
