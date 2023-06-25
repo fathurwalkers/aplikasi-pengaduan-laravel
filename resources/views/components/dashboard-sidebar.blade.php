@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
+                    <a class="nav-link" href="{{ route('pembuatan-surat') }}"><i class="fas fa-fire"></i>
                         <span>
                             Pembuatan Surat
                         </span>

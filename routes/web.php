@@ -6,6 +6,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\KritiksaranController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\SuratController;
 
 Route::get('/', function() {
     return redirect()->route('dashboard');
@@ -29,6 +30,16 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::post('/post-berita', [BeritaController::class, 'post_berita'])->name('post-berita');
         Route::post('/hapus-berita/{id}', [BeritaController::class, 'hapus_berita'])->name('hapus-berita');
         Route::post('/update-berita/{id}', [BeritaController::class, 'update_berita'])->name('update-berita');
+    });
+
+    // SURAT ROUTE
+    Route::group(['prefix' => '/surat'], function () {
+        Route::get('/', function () {
+            return redirect()->route('pembuatan-surat');
+        });
+        Route::get('/pembuatan-surat', [SuratController::class, 'pembuatan_surat'])->name('pembuatan-surat');
+        Route::post('/post-pembuatan-surat', [SuratController::class, 'post_pembuatan_surat'])->name('post-pembuatan-surat');
+        Route::post('/konfirmasi-surat', [SuratController::class, 'konfirmasi_surat'])->name('konfirmasi-surat');
     });
 
     // PENGADUAN ROUTE

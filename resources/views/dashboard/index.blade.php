@@ -37,8 +37,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Surat Masuk</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Pengaduan</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pengaduan }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-envelope text-warning"></i>
@@ -53,8 +53,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Surat Keluar</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">240</div>
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Kritik dan Saran</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $kritiksaran }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-envelope text-info"></i>
@@ -69,8 +69,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Laporan Masuk</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">39</div>
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Surat</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $surat }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-primary"></i>
@@ -85,8 +85,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Berita</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">39</div>
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Informasi</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $berita }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-envelope fa-2x text-primary"></i>

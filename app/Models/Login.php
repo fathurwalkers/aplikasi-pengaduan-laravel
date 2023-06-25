@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Pengaduan;
 use App\Models\Kritiksaran;
 use App\Models\Berita;
+use App\Models\Surat;
 
 class Login extends Model
 {
@@ -28,5 +29,10 @@ class Login extends Model
     public function berita()
     {
         return $this->hasMany(Berita::class);
+    }
+
+    public function surat()
+    {
+        return $this->hasMany(Surat::class);
     }
 }

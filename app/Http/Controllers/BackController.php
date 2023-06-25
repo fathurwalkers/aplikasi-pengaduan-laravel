@@ -18,7 +18,16 @@ class BackController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $pengaduan = Pengaduan::all()->count();
+        $kritiksaran = Kritiksaran::all()->count();
+        $surat = Surat::all()->count();
+        $berita = Berita::all()->count();
+        return view('dashboard.index', [
+            'pengaduan' => $pengaduan,
+            'kritiksaran' => $kritiksaran,
+            'surat' => $surat,
+            'berita' => $berita,
+        ]);
     }
 
     public function login()
