@@ -31,6 +31,12 @@ class BeritaController extends Controller
         }
     }
 
+    public function hapus_berita(Request $request, $id)
+    {
+        $berita = Berita::find($id);
+        dd($berita);
+    }
+
     public function post_berita(Request $request)
     {
         $session_users = session('data_login');

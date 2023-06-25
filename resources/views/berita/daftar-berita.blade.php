@@ -167,14 +167,17 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    Apakah anda yakin ingin menghapus data berita ini?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Batalkan</button>
-                                                    <button type="button" class="btn btn-danger">Hapus</button>
-                                                </div>
+                                                <form action="{{ route('hapus-berita', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        Apakah anda yakin ingin menghapus data berita ini?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Batalkan</button>
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
