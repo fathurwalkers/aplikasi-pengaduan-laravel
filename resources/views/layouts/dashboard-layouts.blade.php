@@ -17,7 +17,13 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/stisla/assets') }}/css/style.css">
     <link rel="stylesheet" href="{{ asset('assets/stisla/assets') }}/css/components.css">
+    <style>
+        .modal-backdrop.show {
+            display: none !important;
+        }
+    </style>
     @stack('css')
+
 </head>
 
 <body>
