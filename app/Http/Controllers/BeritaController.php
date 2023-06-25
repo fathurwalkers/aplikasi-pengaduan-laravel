@@ -20,10 +20,13 @@ class BeritaController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
-        dd($users);
-        $berita = Berita::all();
-        return view('berita.daftar-berita', [
-            'berita' => $berita
-        ]);
+        if ($users->login_level == 'admin') {
+            $berita = Berita::all();
+            return view('berita.daftar-berita', [
+                'berita' => $berita
+            ]);
+        } else {
+            return redirect()->route('dashboard')->with('status', 'Maaf anda tidak dapat mengakses Halaman yang dituju.');
+        }
     }
 }
