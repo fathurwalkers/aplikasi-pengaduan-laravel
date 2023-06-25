@@ -98,6 +98,7 @@
                                     <th>No.</th>
                                     <th>Judul Informasi</th>
                                     <th>Jenis Informasi</th>
+                                    <th>Kode</th>
                                     <th>Pengirim</th>
                                     <th>Tanggal & Waktu Terbit</th>
                                     <th>Kelola</th>
@@ -124,6 +125,7 @@
                                                 @break
                                             @endswitch
                                         </td>
+                                        <td class="text-dark">{{ $item->berita_kode }}</td>
                                         <td class="text-center text-dark">
                                             @if ($item->login->login_nama == null)
                                                 None
