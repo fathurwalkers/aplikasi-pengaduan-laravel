@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Pengaduan;
 use App\Models\Kritiksaran;
+use App\Models\Berita;
 
 class Login extends Model
 {
@@ -22,5 +23,10 @@ class Login extends Model
     public function kritiksaran()
     {
         return $this->hasMany(Kritiksaran::class);
+    }
+
+    public function berita()
+    {
+        return $this->hasMany(Berita::class);
     }
 }
