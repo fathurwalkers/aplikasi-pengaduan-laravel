@@ -140,11 +140,13 @@
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
-                                                        class="btn btn-sm btn-success mr-1">
+                                                        class="btn btn-sm btn-success mr-1" data-toggle="modal"
+                                                        data-target="#modallihat{{ $item->id }}">
                                                         Lihat
                                                     </button>
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
-                                                        class="btn btn-sm btn-warning mr-1">
+                                                        class="btn btn-sm btn-warning mr-1" data-toggle="modal"
+                                                        data-target="#modalubah{{ $item->id }}">
                                                         Ubah
                                                     </button>
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
@@ -156,6 +158,94 @@
                                             </div>
                                         </td>
                                     </tr>
+
+                                    <!-- Modal Ubah -->
+                                    <div class="modal fade" id="modalubah{{ $item->id }}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Berita</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="{{ route('update-berita', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        Apakah anda yakin ingin menghapus data berita ini?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Batalkan</button>
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END Modal Ubah -->
+
+                                    <!-- Modal Lihat -->
+                                    <div class="modal fade" id="modallihat{{ $item->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Lihat Berita</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <label for="berita_judul">
+                                                                    <p class="" style="text-size:50px;">
+                                                                        <b>Judul Informasi : </b>
+                                                                        <br />
+                                                                        {{ $item->berita_judul }}
+                                                                    </p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <label for="berita_judul">
+                                                                    <p class="" style="text-size:50px;">
+                                                                        <b>Pengirim : </b>
+                                                                        <br />
+                                                                        <b>{{ $item->login->login_nama }}</b>
+                                                                    </p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <label for="berita_judul">
+                                                                    <p class="" style="text-size:50px;">
+                                                                        <b>Isi Informasi : </b>
+                                                                        <br />
+                                                                        {!! $item->berita_isi !!}
+                                                                    </p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Tutup</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END Modal Lihat -->
 
                                     <!-- Modal Hapus -->
                                     <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"

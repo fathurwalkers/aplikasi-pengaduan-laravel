@@ -28,6 +28,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::get('/daftar-berita', [BeritaController::class, 'daftar_berita'])->name('daftar-berita');
         Route::post('/post-berita', [BeritaController::class, 'post_berita'])->name('post-berita');
         Route::post('/hapus-berita/{id}', [BeritaController::class, 'hapus_berita'])->name('hapus-berita');
+        Route::post('/update-berita/{id}', [BeritaController::class, 'update_berita'])->name('update-berita');
     });
 
     // PENGADUAN ROUTE
