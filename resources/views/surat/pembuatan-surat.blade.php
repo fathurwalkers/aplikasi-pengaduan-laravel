@@ -24,7 +24,7 @@
             <div class="card-body">
                 <div class="container">
 
-                    <form action="{{ route('post-pembuatan-surat') }}" method="POST">
+                    <form action="{{ route('post-pembuatan-surat') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <p class="text-dark">
@@ -43,7 +43,6 @@
                                         value="{{ $users->login_nama }}" disabled>
                                 </div>
                             </div>
-
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <label for="surat_jenis">
@@ -57,6 +56,20 @@
                                         <option value="surat_izin_keramaian">Surat Izin Keramaian</option>
                                         <option value="surat_keterangan_ahli_waris">Surat Keterangan Ahli Waris</option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Pilih Dokumen Surat</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="surat_dokumen">
+                                        <label class="custom-file-label" for="surat_dokumen">Choose file</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -96,6 +109,7 @@
                                     <th class="text-center text-dark">Kode Surat</th>
                                     <th class="text-center text-dark">Status</th>
                                     <th class="text-center text-dark">Tanggal</th>
+                                    <th class="text-center text-dark">Kelola</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -164,6 +178,23 @@
                                         </td>
                                         <td class="text-center text-dark">
                                             {{ date('d/m/Y', strtotime($item->surat_tanggal)) }}
+                                        </td>
+                                        <td>
+                                            <button type="button" id="buttonlihat{{ $item->id }}"
+                                                class="btn btn-sm btn-success mr-1" data-toggle="modal"
+                                                data-target="#modallihat{{ $item->id }}">
+                                                Lihat
+                                            </button>
+                                            <button type="button" id="buttonlihat{{ $item->id }}"
+                                                class="btn btn-sm btn-warning mr-1" data-toggle="modal"
+                                                data-target="#modalubah{{ $item->id }}">
+                                                Ubah
+                                            </button>
+                                            <button type="button" id="buttonlihat{{ $item->id }}"
+                                                class="btn btn-sm btn-danger mr-1" data-toggle="modal"
+                                                data-target="#modalhapus{{ $item->id }}">
+                                                Hapus
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
