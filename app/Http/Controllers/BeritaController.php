@@ -34,7 +34,12 @@ class BeritaController extends Controller
     public function hapus_berita(Request $request, $id)
     {
         $berita = Berita::find($id);
-        dd($berita);
+        $berita_hapus = $berita->forceDelete();
+        if ($berita_hapus == true) {
+            return redirect()->route('daftar-berita')->with('status', 'Berita telah berhasil dihapus!');
+        } else {
+            return redirect()->route('daftar-berita')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
+        }
     }
 
     public function post_berita(Request $request)

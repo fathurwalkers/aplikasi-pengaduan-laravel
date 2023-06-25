@@ -4,6 +4,12 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables') }}/datatables.min.css"> --}}
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+    <style>
+        .modal-backdrop.show {
+            display: none !important;
+        }
+    </style>
 @endpush
 
 <!-- Header Content Section -->
