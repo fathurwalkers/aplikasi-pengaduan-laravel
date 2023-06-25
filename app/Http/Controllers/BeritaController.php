@@ -56,7 +56,11 @@ class BeritaController extends Controller
             'berita_tanggal' => $berita_tanggal,
             'updated_at' => now()
         ]);
-        dd($update_berita);
+        if ($update_berita == true) {
+            return redirect()->route('daftar-berita')->with('status', 'Informasi telah berhasil diubah!');
+        } else {
+            return redirect()->route('daftar-berita')->with('status', 'Terjadi kesalahan. Informasi tidak dapat diubah.');
+        }
     }
 
     public function post_berita(Request $request)
