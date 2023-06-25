@@ -9,9 +9,7 @@
 @section('header-content')
     @switch($users->login_level)
         @case('user')
-            @section('header-content')
-                Pembuatan Pengaduan
-            @endsection
+            Pembuatan Pengaduan
         @break
 
         @case('admin')
