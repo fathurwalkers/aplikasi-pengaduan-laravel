@@ -46,19 +46,17 @@ class SuratController extends Controller
 
         $surat_pengirim = $users->login_nama;
         $surat_jenis = $request->surat_jenis;
-        $surat_keperluan = $request->surat_jenis;
         $surat_kode = "5rt0" . strtolower(Str::random(8));
         $surat_status = "diproses";
-        $surat_tanggal = $request->surat_tanggal;
+        // $surat_tanggal = $request->surat_tanggal;
         $login_id = $users->id;
 
         $save_surat = $surat->create([
             'surat_pengirim' => $surat_pengirim,
             'surat_jenis' => $surat_jenis,
-            'surat_keperluan' => $surat_keperluan,
             'surat_kode' => $surat_kode,
             'surat_status' => $surat_status,
-            'surat_tanggal' => $surat_tanggal,
+            'surat_tanggal' => now(),
             'login_id' => $login_id,
             'created_at' => now(),
             'updated_at' => now()
@@ -80,7 +78,7 @@ class SuratController extends Controller
         switch ($cek_konfirmasi) {
             case 'diterima':
                 $update_surat = $surat->update([
-                    'surat_status' => "DITERIMA",
+                    'surat_status' => "diterima",
                     'updated_at' => now()
                 ]);
                 if ($update_surat == true) {

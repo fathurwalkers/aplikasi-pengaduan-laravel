@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('surat_kode')->nullable();
             $table->string('surat_status')->nullable();
             $table->dateTime('surat_tanggal')->nullable();
+            $table->string('surat_dokumen')->nullable();
 
             $table->unsignedBigInteger('login_id')->nullable()->default(null);
             $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');

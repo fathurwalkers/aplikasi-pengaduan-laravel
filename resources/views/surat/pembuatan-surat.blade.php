@@ -3,6 +3,7 @@
 @push('css')
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables') }}/datatables.min.css"> --}}
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endpush
 
 <!-- Header Content Section -->
@@ -64,7 +65,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">Pilih Dokumen Surat</span>
+                                        <span class="input-group-text">Dokumen Pendukung</span>
                                     </div>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="surat_dokumen">
@@ -74,7 +75,16 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-3">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <label for="berita_isi">
+                                    <h6 class="text-dark">Isi Surat</h6>
+                                </label>
+                                <textarea id="berita_isi" name="berita_isi" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1 mb-2">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-info btn-md">
                                     Proses Surat
@@ -118,7 +128,9 @@
                                     <tr>
                                         <td class="text-center text-dark">{{ $loop->iteration }}</td>
                                         <td class="text-center text-dark">{{ $item->surat_pengirim }}</td>
-                                        <td class="text-center text-dark">{{ $item->surat_jenis }}</td>
+                                        <td class="text-center text-dark">
+                                            {{ ucwords(str_replace('_', ' ', $item->surat_jenis)) }}
+                                        </td>
                                         <td class="text-center text-dark">{{ $item->surat_kode }}</td>
                                         <td class="text-center text-dark">
 
@@ -135,15 +147,15 @@
                                                             @endswitch
 
                                                             @switch($item->surat_status)
-                                                                @case('PROSES')
+                                                                @case('diproses')
                                                                     <button class="btn btn-sm btn-warning text-dark">
-                                                                        <b>{{ $item->surat_status }}</b>
+                                                                        <b>{{ strtoupper($item->surat_status) }}</b>
                                                                     </button>
                                                                 @break
 
-                                                                @case('DITERIMA')
+                                                                @case('diterima')
                                                                     <button class="btn btn-sm btn-success">
-                                                                        <b>{{ $item->surat_status }}</b>
+                                                                        <b>{{ strtoupper($item->surat_status) }}</b>
                                                                     </button>
                                                                 @break
                                                             @endswitch
@@ -162,10 +174,10 @@
                                                                         <form action="{{ route('konfirmasi-surat') }}"
                                                                             method="POST">
                                                                             @csrf
-                                                                            <input type="hidden" name="id_pengaduan"
+                                                                            <input type="hidden" name="id_surat"
                                                                                 value="{{ $item->id }}">
-                                                                            <button class="dropdown-item btn" type="submit"
-                                                                                value="diterima"
+                                                                            <button class="dropdown-item btn"
+                                                                                type="submit" value="diterima"
                                                                                 name="buttonkonfirmasi">Terima</button>
                                                                         </form>
                                                                     </div>
@@ -210,9 +222,11 @@
 
 @push('js')
     <script src="{{ asset('datatables') }}/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
+            $('#berita_isi').summernote();
         });
     </script>
 @endpush
