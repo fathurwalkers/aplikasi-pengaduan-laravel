@@ -23,9 +23,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // BERITA ROUTE
     Route::group(['prefix' => '/berita'], function () {
-        Route::get('/', function () {
-            return redirect()->route('daftar-berita');
-        });
+        Route::get('/', fn () => redirect()->route('daftar-berita'));
         Route::get('/daftar-berita', [BeritaController::class, 'daftar_berita'])->name('daftar-berita');
         Route::post('/post-berita', [BeritaController::class, 'post_berita'])->name('post-berita');
         Route::post('/hapus-berita/{id}', [BeritaController::class, 'hapus_berita'])->name('hapus-berita');
@@ -34,9 +32,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // SURAT ROUTE
     Route::group(['prefix' => '/surat'], function () {
-        Route::get('/', function () {
-            return redirect()->route('pembuatan-surat');
-        });
+        Route::get('/', fn () => redirect()->route('pembuatan-surat'));
         Route::get('/pembuatan-surat', [SuratController::class, 'pembuatan_surat'])->name('pembuatan-surat');
         Route::post('/post-pembuatan-surat', [SuratController::class, 'post_pembuatan_surat'])->name('post-pembuatan-surat');
         Route::post('/konfirmasi-surat', [SuratController::class, 'konfirmasi_surat'])->name('konfirmasi-surat');
@@ -44,20 +40,18 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // PENGADUAN ROUTE
     Route::group(['prefix' => '/pengaduan'], function () {
-        Route::get('/', function () {
-            return redirect()->route('pembuatan-pengaduan');
-        });
+        Route::get('/', fn () => redirect()->route('pembuatan-pengaduan'));
         Route::get('/pembuatan-pengaduan', [PengaduanController::class, 'pembuatan_pengaduan'])->name('pembuatan-pengaduan');
         Route::post('/post-pembuatan-pengaduan', [PengaduanController::class, 'post_pembuatan_pengaduan'])->name('post-pembuatan-pengaduan');
         Route::post('/konfirmasi-pengaduan', [PengaduanController::class, 'konfirmasi_pengaduan'])->name('konfirmasi-pengaduan');
+        Route::post('/hapus-pengaduan', [PengaduanController::class, 'hapus_pengaduan'])->name('hapus-pengaduan');
     });
 
     // KRITIK DAN SARAN ROUTE
     Route::group(['prefix' => '/kritik-dan-saran'], function () {
-        Route::get('/', function () {
-            return redirect()->route('pembuatan-kritiksaran');
-        });
+        Route::get('/', fn () => redirect()->route('pembuatan-kritiksaran'));
         Route::get('/pembuatan-kritiksaran', [KritiksaranController::class, 'pembuatan_kritiksaran'])->name('pembuatan-kritiksaran');
         Route::post('/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
+        Route::post('/hapus-kritiksaran', [KritiksaranController::class, 'hapus_kritiksaran'])->name('hapus-kritiksaran');
     });
 });
