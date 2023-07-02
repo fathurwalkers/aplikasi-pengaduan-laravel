@@ -94,6 +94,7 @@
                                     <th class="text-center text-dark">Pengirim</th>
                                     <th class="text-center text-dark">Status</th>
                                     <th class="text-center text-dark">Tanggal</th>
+                                    <th class="text-center text-dark">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -187,6 +188,12 @@
                                         </td>
                                         <td class="text-center text-dark">
                                             {{ date('d/m/Y', strtotime($item->pengaduan_tanggal)) }}
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-warning dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown">
+                                                Proses
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach

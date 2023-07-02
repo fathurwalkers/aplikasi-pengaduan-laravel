@@ -88,4 +88,15 @@ class PengaduanController extends Controller
                 break;
         }
     }
+
+    public function hapus_pengaduan(Request $request, $id)
+    {
+        $pengaduan = Pengaduan::find($id);
+        $pengaduan_hapus = $pengaduan->forceDelete();
+        if ($pengaduan_hapus == true) {
+            return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan telah berhasil dihapus!');
+        } else {
+            return redirect()->route('pembuatan-pengaduan')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
+        }
+    }
 }

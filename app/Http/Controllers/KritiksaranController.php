@@ -56,4 +56,15 @@ class KritiksaranController extends Controller
         $save_kritiksaran->save();
         return redirect()->route('pembuatan-kritiksaran')->with('status', 'Pengaduan telah berhasil dibuat.');
     }
+
+    public function hapus_kritiksaran(Request $request, $id)
+    {
+        $kritiksaran = Kritiksaran::find($id);
+        $kritiksaran_hapus = $kritiksaran->forceDelete();
+        if ($kritiksaran_hapus == true) {
+            return redirect()->route('pembuatan-kritiksaran')->with('status', 'Data Kritik dan Saran telah berhasil dihapus!');
+        } else {
+            return redirect()->route('pembuatan-kritiksaran')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
+        }
+    }
 }
