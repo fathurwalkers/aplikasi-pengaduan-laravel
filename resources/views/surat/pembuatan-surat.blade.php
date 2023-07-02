@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h5 class="my-auto text-dark">Daftar Pengaduan</h5>
+                        <h5 class="my-auto text-dark">Daftar Surat</h5>
                     </div>
                 </div>
                 <hr />
