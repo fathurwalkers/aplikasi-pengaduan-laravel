@@ -88,6 +88,7 @@
                                     <th>Tipe</th>
                                     <th>Pengirim</th>
                                     <th>Tanggal</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -114,6 +115,47 @@
                                         <td class="text-center text-dark">{{ $item->kritiksaran_pengirim }}</td>
                                         <td class="text-center text-dark">
                                             {{ date('d/m/Y', strtotime($item->kritiksaran_tanggal)) }}
+                                        </td>
+                                        <td class="d-flex justify-content-center">
+                                            <button type="button" id="buttonlihat{{ $item->id }}"
+                                                class="btn btn-sm btn-warning text-dark" data-toggle="modal"
+                                                data-target="#modalhapus{{ $item->id }}">
+                                                <b>
+                                                    Hapus
+                                                </b>
+                                            </button>
+
+                                            <!-- Modal Hapus -->
+                                            <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Kritik dan
+                                                                Saran
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('hapus-kritiksaran', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin menghapus data Kritik dan Saran ini?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END Modal Hapus -->
+
                                         </td>
                                     </tr>
                                 @endforeach

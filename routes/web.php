@@ -44,7 +44,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::get('/pembuatan-pengaduan', [PengaduanController::class, 'pembuatan_pengaduan'])->name('pembuatan-pengaduan');
         Route::post('/post-pembuatan-pengaduan', [PengaduanController::class, 'post_pembuatan_pengaduan'])->name('post-pembuatan-pengaduan');
         Route::post('/konfirmasi-pengaduan', [PengaduanController::class, 'konfirmasi_pengaduan'])->name('konfirmasi-pengaduan');
-        Route::post('/hapus-pengaduan', [PengaduanController::class, 'hapus_pengaduan'])->name('hapus-pengaduan');
+        Route::post('/hapus-pengaduan/{id}', [PengaduanController::class, 'hapus_pengaduan'])->name('hapus-pengaduan');
     });
 
     // KRITIK DAN SARAN ROUTE
@@ -52,6 +52,6 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::get('/', fn () => redirect()->route('pembuatan-kritiksaran'));
         Route::get('/pembuatan-kritiksaran', [KritiksaranController::class, 'pembuatan_kritiksaran'])->name('pembuatan-kritiksaran');
         Route::post('/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
-        Route::post('/hapus-kritiksaran', [KritiksaranController::class, 'hapus_kritiksaran'])->name('hapus-kritiksaran');
+        Route::post('/hapus-kritiksaran/{id}', [KritiksaranController::class, 'hapus_kritiksaran'])->name('hapus-kritiksaran');
     });
 });

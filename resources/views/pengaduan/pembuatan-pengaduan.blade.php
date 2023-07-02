@@ -189,11 +189,13 @@
                                         <td class="text-center text-dark">
                                             {{ date('d/m/Y', strtotime($item->pengaduan_tanggal)) }}
                                         </td>
-                                        <td>
+                                        <td class="d-flex justify-content-center">
                                             <button type="button" id="buttonlihat{{ $item->id }}"
-                                                class="btn btn-sm btn-warning mr-1" data-toggle="modal"
+                                                class="btn btn-sm btn-warning text-dark" data-toggle="modal"
                                                 data-target="#modalhapus{{ $item->id }}">
-                                                Hapus
+                                                <b>
+                                                    Hapus
+                                                </b>
                                             </button>
 
                                             <!-- Modal Hapus -->
