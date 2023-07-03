@@ -66,7 +66,7 @@
                 <div class="row mt-2 mx-auto">
                     <div class="col-sm-12 col-md-12 col-lg-12 mb-1">
                         <button type="button" class="btn btn-primary btn-md col-12 px-auto">
-                            Pengumuman
+                            Berita
                         </button>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12 mb-1">
