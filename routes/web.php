@@ -1,22 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BackController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\KeuanganController;
-use App\Http\Controllers\KritiksaranController;
-use App\Http\Controllers\PengaduanController;
-use App\Http\Controllers\SuratController;
-
-Route::get('/', function() {
-    return redirect()->route('dashboard');
-});
+use App\Http\Controllers\{BackController, BeritaController, KeuanganController, KritiksaranController, PengaduanController, SuratController, HomeController};
 
 Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::get('/register', [BackController::class, 'register'])->name('register');
 Route::post('/login/proses-login', [BackController::class, 'postlogin'])->name('post-login');
 Route::post('/login/proses-register', [BackController::class, 'postregister'])->name('post-register');
 Route::post('/logout', [BackController::class, 'logout'])->name('logout');
+
+Route::group(['prefix' => '/home'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+});
 
 Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
@@ -54,4 +49,8 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::post('/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
         Route::post('/hapus-kritiksaran/{id}', [KritiksaranController::class, 'hapus_kritiksaran'])->name('hapus-kritiksaran');
     });
+});
+
+Route::get('/', function() {
+    return redirect()->route('home');
 });
