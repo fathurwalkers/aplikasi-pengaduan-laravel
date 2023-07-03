@@ -3,14 +3,17 @@
 @section('title', 'Homepage')
 
 @section('main-content')
+
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <h4>Informasi & Berita</h4>
         </div>
     </div>
+
     <div class="row">
 
         <div class="col-sm-8 col-md-8 col-lg-8">
+
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="card-deck">
@@ -45,6 +48,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="col-sm-4 col-md-4 col-lg-4 border border-dark mb-4">
@@ -56,7 +60,6 @@
                         Kategori
                     </h5>
                 </div>
-
 
                 <hr style="margin-top:0rem!important;margin-bottom:0rem!important;" />
 
@@ -75,5 +78,6 @@
             </div>
 
         </div>
+
     </div>
 @endsection
