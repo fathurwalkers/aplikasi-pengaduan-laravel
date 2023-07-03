@@ -20,9 +20,13 @@ class HomeController extends Controller
     public function index()
     {
         $session_users = session('data_login');
-        $users = Login::find($session_users->id);
-        return view('home.index', [
-            'users' => $users
-        ]);
+        if ($session_users == null ) {
+            return view('home.index');
+        } else {
+            $users = Login::find($session_users->id);
+            return view('home.index', [
+                'users' => $users
+            ]);
+        }
     }
 }
