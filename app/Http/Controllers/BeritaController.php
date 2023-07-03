@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\{Hash, Arr, Str};
+use Illuminate\Support\Facades\{Hash, Arr};
 use App\Models\{Login, Pengaduan, Kritiksaran, Keuangan, Surat, Berita};
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
+    // Fungsi untuk Menampilkan semua Data Berita
     public function daftar_berita()
     {
         $session_users = session('data_login');
@@ -23,6 +25,7 @@ class BeritaController extends Controller
         }
     }
 
+    // Fungsi untuk Menghapus Data Berita
     public function hapus_berita(Request $request, $id)
     {
         $berita = Berita::find($id);
@@ -34,6 +37,7 @@ class BeritaController extends Controller
         }
     }
 
+    // Fungsi untuk Merubah Data Berita
     public function update_berita(Request $request, $id)
     {
         $berita = Berita::find($id);
@@ -55,6 +59,7 @@ class BeritaController extends Controller
         }
     }
 
+    // Fungsi untuk menambah Data Berita
     public function post_berita(Request $request)
     {
         $session_users = session('data_login');

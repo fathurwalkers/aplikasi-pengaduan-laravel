@@ -17,6 +17,7 @@ use Carbon\Carbon;
 
 class SuratController extends Controller
 {
+    // Fungsi untuk Pembuatan Surat
     public function pembuatan_surat()
     {
         $session_users = session('data_login');
@@ -37,6 +38,7 @@ class SuratController extends Controller
         }
     }
 
+    // Fungsi untuk menambah Data Surat
     public function post_pembuatan_surat(Request $request)
     {
         $session_users = session('data_login');
@@ -70,6 +72,7 @@ class SuratController extends Controller
         }
     }
 
+    // Fungsi untuk melakukan konfirmasi status surat
     public function konfirmasi_surat(Request $request)
     {
         $cek_konfirmasi = $request->buttonkonfirmasi;

@@ -16,6 +16,7 @@ use App\Models\Berita;
 
 class PengaduanController extends Controller
 {
+    // Fungsi untuk Pembuatan Pengaduan
     public function pembuatan_pengaduan()
     {
         $session_users = session('data_login');
@@ -36,6 +37,7 @@ class PengaduanController extends Controller
         }
     }
 
+    // Fungsi untuk menambah Data Pengaduan
     public function post_pembuatan_pengaduan(Request $request)
     {
         $session_users = session('data_login');
@@ -58,6 +60,7 @@ class PengaduanController extends Controller
         return redirect()->route('pembuatan-pengaduan')->with('status', 'Pengaduan telah berhasil dibuat.');
     }
 
+    // Fungsi untuk Melakukan konfirmasi pada status pengaduan
     public function konfirmasi_pengaduan(Request $request)
     {
         $cek_konfirmasi = $request->buttonkonfirmasi;
@@ -89,6 +92,7 @@ class PengaduanController extends Controller
         }
     }
 
+    // Fungsi untuk menghapus data pengaduan
     public function hapus_pengaduan(Request $request, $id)
     {
         $pengaduan = Pengaduan::find($id);

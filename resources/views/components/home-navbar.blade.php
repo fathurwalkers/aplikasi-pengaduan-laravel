@@ -24,7 +24,7 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <button class="btn btn-sm btn-grey mr-1 my-auto nav-link text-white" type="button"
+                        <button class="btn btn-sm btn-grey mr-1 my-auto nav-link text-dark" type="button"
                             onclick="location.href = '{{ route('login') }}'">
                             <b>
                                 Login
