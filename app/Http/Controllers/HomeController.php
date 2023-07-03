@@ -21,7 +21,10 @@ class HomeController extends Controller
     {
         $session_users = session('data_login');
         if ($session_users == null ) {
-            return view('home.index');
+            $users = null;
+            return view('home.index', [
+                'users' => $users
+            ]);
         } else {
             $users = Login::find($session_users->id);
             return view('home.index', [

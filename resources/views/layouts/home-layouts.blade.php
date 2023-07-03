@@ -17,7 +17,11 @@
 
 
     <div class="container">
-        <x-home-navbar :users=$users />
+        @if ($users == null)
+            <x-home-navbar :users=null />
+        @else
+            <x-home-navbar :users=$users />
+        @endif
         <section id="main-content" class="mt-4">
             @yield('main-content')
         </section>
