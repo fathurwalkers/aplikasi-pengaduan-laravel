@@ -48,11 +48,6 @@
         </div>
         <hr class="mt-3" />
         <section id="main-content" class="">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h4>@yield('main-title')</h4>
-                </div>
-            </div>
             @yield('main-content')
         </section>
     </div>
