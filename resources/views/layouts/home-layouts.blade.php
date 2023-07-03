@@ -15,14 +15,41 @@
 
 <body>
 
-
-    <div class="container">
+    <div class="container fixed-top">
         @if ($users == null)
             <x-home-navbar :users=null />
         @else
             <x-home-navbar :users=$users />
         @endif
-        <section id="main-content" class="mt-4">
+    </div>
+
+    <div class="container">
+
+        <div class="card border border-grey mt-3">
+            <div class="card-body">
+                <div class="row my-auto pt-4">
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <h5 class="text-dark">RT 031 BATU AMPAR</h5>
+                        <p class="text-dark">
+                            Website Sistem Informasi ini menyediakan beberapa pelayanan seperti pembuatan surat,
+                            informasi
+                            KAS, berita kegiatan, pengaduan berbasis IOT dan lain sebagainya.
+                        </p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
+                        <img src="{{ asset('assets') }}/logo-rt.jpg" class="img img-fluid" width="150px"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-3" />
+        <section id="main-content" class="">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h4>@yield('main-title')</h4>
+                </div>
+            </div>
             @yield('main-content')
         </section>
     </div>
