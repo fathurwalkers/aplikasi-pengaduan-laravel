@@ -67,7 +67,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::post('/hapus-kritiksaran/{id}', [KritiksaranController::class, 'hapus_kritiksaran'])->name('hapus-kritiksaran');
     });
 
-    Route::group([], function () {
+    Route::group(['prefix' => '/keuangan'], function () {
         Route::get('/', fn () => redirect()->route('informasi-keuangan'));
         Route::get('/informasi-keuangan', [KeuanganController::class, 'informasi_keuangan'])->name('informasi-keuangan');
     });

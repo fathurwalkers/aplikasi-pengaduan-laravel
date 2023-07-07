@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
+                    <a class="nav-link" href="{{ route('informasi-keuangan') }}"><i class="fas fa-fire"></i>
                         <span>
                             Informasi Anggaran
                         </span>

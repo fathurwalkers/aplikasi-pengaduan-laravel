@@ -118,7 +118,7 @@
                                         </td>
                                         <td class="d-flex justify-content-center">
                                             <button type="button" id="buttonlihat{{ $item->id }}"
-                                                class="btn btn-sm btn-warning text-dark" data-toggle="modal"
+                                                class="btn btn-sm btn-danger text-dark" data-toggle="modal"
                                                 data-target="#modalhapus{{ $item->id }}">
                                                 <b>
                                                     Hapus
