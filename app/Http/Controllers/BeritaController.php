@@ -3,10 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\{Hash, Arr};
-use App\Models\{Login, Pengaduan, Kritiksaran, Keuangan, Surat, Berita};
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\{
+    Str,
+    Arr
+};
+use App\Models\{
+    Login,
+    Pengaduan,
+    Kritiksaran,
+    Keuangan,
+    Surat,
+    Berita
+};
 use Carbon\Carbon;
-use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {

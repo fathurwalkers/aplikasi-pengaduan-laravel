@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{BackController, BeritaController, KeuanganController, KritiksaranController, PengaduanController, SuratController, HomeController};
+use App\Http\Controllers\{
+    BackController,
+    BeritaController,
+    KeuanganController,
+    KritiksaranController,
+    PengaduanController,
+    SuratController,
+    HomeController
+};
 
 Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::get('/register', [BackController::class, 'register'])->name('register');

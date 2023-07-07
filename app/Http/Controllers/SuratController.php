@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Faker\Factory as Faker;
-use Illuminate\Support\Arr;
-use App\Models\Login;
-use App\Models\Pengaduan;
-use App\Models\Kritiksaran;
-use App\Models\Keuangan;
-use App\Models\Surat;
-use App\Models\Berita;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\{
+    Str,
+    Arr
+};
+use App\Models\{
+    Login,
+    Pengaduan,
+    Kritiksaran,
+    Keuangan,
+    Surat,
+    Berita
+};
 
 class SuratController extends Controller
 {
