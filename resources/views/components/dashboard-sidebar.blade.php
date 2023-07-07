@@ -54,7 +54,7 @@
                             </span>
                         </a>
                     </li>
-                    <li class="menu-header">Settings</li>
+                    {{-- <li class="menu-header">Settings</li>
                     <li>
                         <a class="nav-link" href="credits.html">
                             <i class="fas fa-pencil-ruler">
@@ -64,7 +64,7 @@
                                 Pengaturan Aplikasi
                             </span>
                         </a>
-                    </li>
+                    </li> --}}
                 @endif
             </ul>
 
