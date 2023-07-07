@@ -20,5 +20,13 @@ use App\Models\{
 
 class KeuanganController extends Controller
 {
-
+    public function informasi_keuangan()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        dd($users);
+        return view('keuangan.informasi-keuangan', [
+            'users' => $users
+        ]);
+    }
 }
