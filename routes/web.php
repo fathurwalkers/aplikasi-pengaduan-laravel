@@ -66,6 +66,11 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::post('/post-pembuatan-kritiksaran', [KritiksaranController::class, 'post_pembuatan_kritiksaran'])->name('post-pembuatan-kritiksaran');
         Route::post('/hapus-kritiksaran/{id}', [KritiksaranController::class, 'hapus_kritiksaran'])->name('hapus-kritiksaran');
     });
+
+    Route::group([], function () {
+        Route::get('/', fn () => redirect()->route('informasi-keuangan'));
+        Route::get('/informasi-keuangan', [KeuanganController::class, 'informasi_keuangan'])->name('informasi-keuangan');
+    });
 });
 
 // Route Default ketika aplikasi Pertama Kali di Akses akan langsung diarahkan ke Halaman /home
