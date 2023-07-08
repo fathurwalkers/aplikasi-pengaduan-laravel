@@ -33,15 +33,41 @@
                             pengiriman surat.
                         </p>
 
+                        <hr />
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-dark">Isikan informasi Pengajuan Surat : </p>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="pengaduan_keterangan">
-                                        <h6>Pengirim</h6>
+                                    <label for="surat_perihal">
+                                        <h6>Perihal</h6>
                                     </label>
-                                    <input type="text" class="form-control" id="pengaduan_keterangan"
-                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pengirim"
-                                        value="{{ $users->login_nama }}" disabled>
+                                    <input type="text" class="form-control" id="surat_perihal"
+                                        placeholder="Masukkan Perihal lampiran surat..." name="surat_perihal">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_lampiran">
+                                        <h6>Lampiran</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_lampiran"
+                                        placeholder="Masukkan lampiran surat..." name="surat_lampiran">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_nomor">
+                                        <h6>Nomor Surat</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_nomor"
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_nomor">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
@@ -71,6 +97,111 @@
                                         <input type="file" class="custom-file-input" id="surat_dokumen">
                                         <label class="custom-file-label" for="surat_dokumen">Choose file</label>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-dark">Isikan informasi Data Diri Pelampir : </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="pengaduan_keterangan">
+                                        <h6>Pengirim</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="pengaduan_keterangan"
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pengirim"
+                                        value="{{ $users->login_nama }}" disabled>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_statusperkawinan">
+                                        <h6>Status Pekawinan</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
+                                        name="surat_pelampir_statusperkawinan">
+                                        <option default value="menikah">Menikah</option>
+                                        <option value="belum menikah">Belum Menikah</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_pekerjaan">
+                                        <h6>Pekerjaan</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_pelampir_pekerjaan"
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pelampir_pekerjaan">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_statusperkawinan">
+                                        <h6>Status Pekawinan</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
+                                        name="surat_pelampir_statusperkawinan">
+                                        <option default value="menikah">Menikah</option>
+                                        <option value="belum menikah">Belum Menikah</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_jenkel">
+                                        <h6>Jenis Kelamin</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_pelampir_jenkel" name="surat_pelampir_jenkel">
+                                        <option default value="L">Laki-Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_statusperkawinan">
+                                        <h6>Kewarganegaraan</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
+                                        name="surat_pelampir_statusperkawinan">
+                                        <option default value="WNI">WNI</option>
+                                        <option value="WNA">WNA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_pekerjaan">
+                                        <h6>Pekerjaan</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_pelampir_pekerjaan"
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pelampir_pekerjaan">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_statusperkawinan">
+                                        <h6>Status Pekawinan</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
+                                        name="surat_pelampir_statusperkawinan">
+                                        <option default value="menikah">Menikah</option>
+                                        <option value="belum menikah">Belum Menikah</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -115,6 +246,7 @@
                                 <tr>
                                     <th class="text-center text-dark">No.</th>
                                     <th class="text-center text-dark">Pengirim</th>
+                                    <th class="text-center text-dark">Perihal</th>
                                     <th class="text-center text-dark">Keperluan</th>
                                     <th class="text-center text-dark">Kode Surat</th>
                                     <th class="text-center text-dark">Status</th>
@@ -128,6 +260,7 @@
                                     <tr>
                                         <td class="text-center text-dark">{{ $loop->iteration }}</td>
                                         <td class="text-center text-dark">{{ $item->surat_pengirim }}</td>
+                                        <td class="text-center text-dark">{{ $item->surat_perihal }}</td>
                                         <td class="text-center text-dark">
                                             {{ ucwords(str_replace('_', ' ', $item->surat_jenis)) }}
                                         </td>
