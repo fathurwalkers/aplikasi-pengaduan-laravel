@@ -36,85 +36,17 @@
                         <hr />
                         <div class="row">
                             <div class="col-12">
-                                <p class="text-dark">Isikan informasi Pengajuan Surat : </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label for="surat_perihal">
-                                        <h6>Perihal</h6>
-                                    </label>
-                                    <input type="text" class="form-control" id="surat_perihal"
-                                        placeholder="Masukkan Perihal lampiran surat..." name="surat_perihal">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label for="surat_lampiran">
-                                        <h6>Lampiran</h6>
-                                    </label>
-                                    <input type="text" class="form-control" id="surat_lampiran"
-                                        placeholder="Masukkan lampiran surat..." name="surat_lampiran">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label for="surat_nomor">
-                                        <h6>Nomor Surat</h6>
-                                    </label>
-                                    <input type="text" class="form-control" id="surat_nomor"
-                                        placeholder="Masukkan keterangan pengaduan..." name="surat_nomor">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label for="surat_jenis">
-                                        <h6>Jenis Keperluan</h6>
-                                    </label>
-                                    <select class="form-control" id="surat_jenis" name="surat_jenis">
-                                        <option default value="surat_usaha">Surat Usaha</option>
-                                        <option value="surat_kematian">Surat Kematian</option>
-                                        <option value="surat_domisili">Surat Domisili</option>
-                                        <option value="surat_pengantar_nikah">Surat Pengantar Nikah</option>
-                                        <option value="surat_izin_keramaian">Surat Izin Keramaian</option>
-                                        <option value="surat_keterangan_ahli_waris">Surat Keterangan Ahli Waris</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Dokumen Pendukung</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="surat_dokumen">
-                                        <label class="custom-file-label" for="surat_dokumen">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr />
-                        <div class="row">
-                            <div class="col-12">
                                 <p class="text-dark">Isikan informasi Data Diri Pelampir : </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="pengaduan_keterangan">
+                                    <label for="surat_pelampir_nama">
                                         <h6>Pengirim</h6>
                                     </label>
-                                    <input type="text" class="form-control" id="pengaduan_keterangan"
-                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pengirim"
+                                    <input type="text" class="form-control" id="surat_pelampir_nama"
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pelampir_nama"
                                         value="{{ $users->login_nama }}" disabled>
                                 </div>
                             </div>
@@ -183,25 +115,108 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_goldarah">
+                                        <h6>Gol. Darah</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_pelampir_goldarah"
+                                        placeholder="Masukkan golongan darah pelampir..." name="surat_pelampir_goldarah">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_alamat">
+                                        <h6>Alamat</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_pelampir_alamat"
+                                        placeholder="Masukkan alamat pelampir..." name="surat_pelampir_alamat">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="form-group">
+                                    <label for="surat_pelampir_statusperkawinan">
+                                        <h6>Agama</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
+                                        name="surat_pelampir_statusperkawinan">
+                                        <option default value="islam">Islam</option>
+                                        <option value="kristen">Kristen</option>
+                                        <option value="Protestan">Protestan</option>
+                                        <option value="katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Hindu</option>
+                                        <option value="konghucu">Konghucu</option>
+                                        <option value="lainnya">Lainnya...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-dark">Isikan informasi Pengajuan Surat : </p>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="surat_pelampir_pekerjaan">
-                                        <h6>Pekerjaan</h6>
+                                    <label for="surat_perihal">
+                                        <h6>Perihal</h6>
                                     </label>
-                                    <input type="text" class="form-control" id="surat_pelampir_pekerjaan"
-                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pelampir_pekerjaan">
+                                    <input type="text" class="form-control" id="surat_perihal"
+                                        placeholder="Masukkan Perihal lampiran surat..." name="surat_perihal">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="surat_pelampir_statusperkawinan">
-                                        <h6>Status Pekawinan</h6>
+                                    <label for="surat_lampiran">
+                                        <h6>Lampiran</h6>
                                     </label>
-                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
-                                        name="surat_pelampir_statusperkawinan">
-                                        <option default value="menikah">Menikah</option>
-                                        <option value="belum menikah">Belum Menikah</option>
+                                    <input type="text" class="form-control" id="surat_lampiran"
+                                        placeholder="Masukkan lampiran surat..." name="surat_lampiran">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_nomor">
+                                        <h6>Nomor Surat</h6>
+                                    </label>
+                                    <input type="text" class="form-control" id="surat_nomor"
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_nomor">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="surat_jenis">
+                                        <h6>Jenis Keperluan</h6>
+                                    </label>
+                                    <select class="form-control" id="surat_jenis" name="surat_jenis">
+                                        <option default value="surat_usaha">Surat Usaha</option>
+                                        <option value="surat_kematian">Surat Kematian</option>
+                                        <option value="surat_domisili">Surat Domisili</option>
+                                        <option value="surat_pengantar_nikah">Surat Pengantar Nikah</option>
+                                        <option value="surat_izin_keramaian">Surat Izin Keramaian</option>
+                                        <option value="surat_keterangan_ahli_waris">Surat Keterangan Ahli Waris</option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Dokumen Pendukung</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="surat_dokumen">
+                                        <label class="custom-file-label" for="surat_dokumen">Choose file</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
