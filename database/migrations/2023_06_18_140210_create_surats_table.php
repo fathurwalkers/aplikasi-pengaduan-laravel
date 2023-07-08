@@ -12,6 +12,9 @@ return new class extends Migration
             $table->id();
 
             $table->string('surat_pengirim')->nullable();
+            $table->string('surat_nomor')->nullable();
+            $table->string('surat_lampiran')->nullable();
+            $table->string('surat_perihal')->nullable();
             $table->string('surat_jenis')->nullable();
             $table->string('surat_kode')->nullable();
             $table->string('surat_status')->nullable();
