@@ -10,6 +10,13 @@ return new class extends Migration
     {
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id();
+
+            $table->string('kas_kategori')->nullable();
+            $table->string('kas_uraian')->nullable();
+            $table->integer('kas_debet')->nullable();
+            $table->integer('kas_kredit')->nullable();
+            $table->integer('kas_tipe')->nullable(); // PENERIMAAN / PENGELUARAN
+
             $table->timestamps();
         });
     }
