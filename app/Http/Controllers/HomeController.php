@@ -29,14 +29,18 @@ class HomeController extends Controller
         // Jika session tidak ada (atau NULL) maka variabel $users bernilai null, dan akan langsung mengarah kehalaman index Home
         if ($session_users == null ) {
             $users = null;
+            $berita = Berita::all();
             return view('home.index', [
                 'users' => $users,
+                'berita' => $berita
             ]);
         // Jika session ada (tidak bernilai NULL) maka variabel $users berisi session user, dan akan langsung mengarah kehalaman index Home
         } else {
             $users = Login::find($session_users->id);
+            $berita = Berita::all();
             return view('home.index', [
                 'users' => $users,
+                'berita' => $berita
             ]);
         }
     }

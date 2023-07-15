@@ -138,7 +138,7 @@
                                         </td>
                                         <td class="text-center text-dark">
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 btn-group">
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-success mr-1" data-toggle="modal"
                                                         data-target="#modallihat{{ $item->id }}">
