@@ -54,7 +54,8 @@
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">{{ date('d/m/Y', strtotime($item->berita_tanggal)) }}</small>
-                                    <button type="button" class="btn btn-success btn-sm float-right">
+                                    <button type="button" class="btn btn-success btn-sm float-right"
+                                        onclick="location.href = '{{ route('lihat-informasi', $item->id) }}'">
                                         Selengkapnya
                                     </button>
                                 </div>

@@ -27,6 +27,7 @@ Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 // Route Group untuk HomeController (Halaman Depan Aplikasi)
 Route::group(['prefix' => '/home'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/informasi/{id}', [HomeController::class, 'lihat_informasi'])->name('lihat-informasi');
 });
 
 // Route untuk Halaman Dashboard Aplikasi

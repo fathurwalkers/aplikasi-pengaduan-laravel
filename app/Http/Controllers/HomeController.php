@@ -44,4 +44,24 @@ class HomeController extends Controller
             ]);
         }
     }
+
+    public function lihat_informasi($id)
+    {
+        $session_users = session('data_login');
+        if ($session_users == null ) {
+            $users = null;
+            $berita = Berita::find($id);
+            return view('home.lihat-informasi', [
+                'users' => $users,
+                'berita' => $berita
+            ]);
+        } else {
+            $users = Login::find($session_users->id);
+            $berita = Berita::find($id);
+            return view('home.lihat-informasi', [
+                'users' => $users,
+                'berita' => $berita
+            ]);
+        }
+    }
 }
