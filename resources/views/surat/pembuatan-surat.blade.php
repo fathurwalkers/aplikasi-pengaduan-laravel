@@ -309,28 +309,30 @@
                                                             @endswitch
                                                         </div>
                                                         @if ($users->login_level == 'admin')
-                                                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                                                <div class="dropdown">
-                                                                    <button class="btn btn-info dropdown-toggle"
-                                                                        type="button" id="dropdownMenuButton"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        Proses
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <form action="{{ route('konfirmasi-surat') }}"
-                                                                            method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="id_surat"
-                                                                                value="{{ $item->id }}">
-                                                                            <button class="dropdown-item btn"
-                                                                                type="submit" value="diterima"
-                                                                                name="buttonkonfirmasi">Terima</button>
-                                                                        </form>
+                                                            @if ($item->surat_status == 'diproses')
+                                                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                    <div class="dropdown">
+                                                                        <button class="btn btn-info dropdown-toggle"
+                                                                            type="button" id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            Proses
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <form action="{{ route('konfirmasi-surat') }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id_surat"
+                                                                                    value="{{ $item->id }}">
+                                                                                <button class="dropdown-item btn"
+                                                                                    type="submit" value="diterima"
+                                                                                    name="buttonkonfirmasi">Terima</button>
+                                                                            </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>
