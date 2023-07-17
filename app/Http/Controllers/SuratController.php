@@ -106,4 +106,15 @@ class SuratController extends Controller
                 break;
         }
     }
+
+    public function hapus_surat(Request $request, $id)
+    {
+        $surat = Surat::find($id);
+        $surat_hapus = $surat->forceDelete();
+        if ($surat_hapus == true) {
+            return redirect()->route('pembuatan-surat')->with('status', 'Pengaduan telah berhasil dihapus!');
+        } else {
+            return redirect()->route('pembuatan-surat')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
+        }
+    }
 }
