@@ -52,14 +52,11 @@
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="surat_pelampir_statusperkawinan">
-                                        <h6>Status Pekawinan</h6>
+                                    <label for="surat_pelampir_tgllahir">
+                                        <h6>Tanggal Lahir</h6>
                                     </label>
-                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
-                                        name="surat_pelampir_statusperkawinan">
-                                        <option default value="menikah">Menikah</option>
-                                        <option value="belum menikah">Belum Menikah</option>
-                                    </select>
+                                    <input type="date" class="form-control" id="surat_pelampir_tgllahir"
+                                        name="surat_pelampir_tgllahir">
                                 </div>
                             </div>
                         </div>
