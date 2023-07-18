@@ -263,6 +263,7 @@
                                     <th class="text-center text-dark">Kode Surat</th>
                                     <th class="text-center text-dark">Status</th>
                                     <th class="text-center text-dark">Tanggal</th>
+                                    <th class="text-center text-dark">Dokumen</th>
                                     <th class="text-center text-dark">Kelola</th>
                                 </tr>
                             </thead>
@@ -337,6 +338,19 @@
                                         </td>
                                         <td class="text-center text-dark">
                                             {{ date('d/m/Y', strtotime($item->surat_tanggal)) }}
+                                        </td>
+                                        <td class="text-center text-dark">
+                                            @if ($item->surat_dokumen == null)
+                                                <button type="button" class="btn btn-sm btn-info mr-1">
+                                                    Tidak ada Dokumen
+                                                </button>
+                                            @else
+                                                <button type="button" id="buttonlihat{{ $item->id }}"
+                                                    class="btn btn-sm btn-primary mr-1" data-toggle="modal"
+                                                    data-target="#modallihat{{ $item->id }}">
+                                                    Lihat Dokumen
+                                                </button>
+                                            @endif
                                         </td>
                                         <td>
                                             <button type="button" id="buttonlihat{{ $item->id }}"
