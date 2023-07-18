@@ -49,6 +49,10 @@ class SuratController extends Controller
 
         $surat_dokumen = $request->file('surat_dokumen');
 
+        if ($surat_dokumen == null) {
+            $surat_dokumen = null;
+        }
+
         dd($surat_dokumen);
 
         $surat_pengirim = $users->login_nama;
