@@ -53,8 +53,6 @@ class SuratController extends Controller
             $surat_dokumen = null;
         }
 
-        dd($surat_dokumen);
-
         $surat_pengirim = $users->login_nama;
         $surat_jenis = $request->surat_jenis;
         $surat_tanggal = $request->surat_tanggal;
@@ -69,13 +67,24 @@ class SuratController extends Controller
         $surat_pelampir_goldarah = $request->surat_pelampir_goldarah;
         $surat_pelampir_alamat = $request->surat_pelampir_alamat;
         $surat_pelampir_agama = $request->surat_pelampir_agama;
-        $surat_pelampir_agama = $request->surat_pelampir_agama;
         $surat_pelampir_nama = $users->login_nama;
 
         dd([
             $surat_pengirim,
             $surat_jenis,
-            $surat_tanggal
+            $surat_tanggal,
+            $surat_perihal,
+            $surat_lampiran,
+            $surat_nomor,
+            $surat_pelampir_pekerjaan,
+            $surat_pelampir_statusperkawinan,
+            $surat_pelampir_jenkel,
+            $surat_pelampir_kewarganegaraan,
+            $surat_pelampir_goldarah,
+            $surat_pelampir_alamat,
+            $surat_pelampir_agama,
+            $surat_pelampir_nama,
+            $surat_dokumen,
         ]);
 
         $surat_kode = "5rt0" . strtolower(Str::random(8));
