@@ -47,18 +47,38 @@ class SuratController extends Controller
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
 
-        $surat = new Surat;
+        $surat_dokumen = $request->file('surat_dokumen');
+
+        dd($surat_dokumen);
 
         $surat_pengirim = $users->login_nama;
         $surat_jenis = $request->surat_jenis;
-        $surat_tanggal = 
+        $surat_tanggal = $request->surat_tanggal;
+        $surat_perihal = $request->surat_perihal;
+        $surat_lampiran = $request->surat_lampiran;
+        $surat_nomor = $request->surat_nomor;
 
+        $surat_pelampir_pekerjaan = $request->surat_pelampir_pekerjaan;
+        $surat_pelampir_statusperkawinan = $request->surat_pelampir_statusperkawinan;
+        $surat_pelampir_jenkel = $request->surat_pelampir_jenkel;
+        $surat_pelampir_kewarganegaraan = $request->surat_pelampir_kewarganegaraan;
+        $surat_pelampir_goldarah = $request->surat_pelampir_goldarah;
+        $surat_pelampir_alamat = $request->surat_pelampir_alamat;
+        $surat_pelampir_agama = $request->surat_pelampir_agama;
+        $surat_pelampir_agama = $request->surat_pelampir_agama;
+        $surat_pelampir_nama = $users->login_nama;
+
+        dd([
+            $surat_pengirim,
+            $surat_jenis,
+            $surat_tanggal
+        ]);
 
         $surat_kode = "5rt0" . strtolower(Str::random(8));
         $surat_status = "diproses";
-        // $surat_tanggal = $request->surat_tanggal;
         $login_id = $users->id;
 
+        $surat = new Surat;
         $save_surat = $surat->create([
             'surat_pengirim' => $surat_pengirim,
             'surat_jenis' => $surat_jenis,

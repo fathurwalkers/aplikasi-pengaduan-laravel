@@ -99,11 +99,11 @@
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="surat_pelampir_statusperkawinan">
+                                    <label for="surat_pelampir_kewarganegaraan">
                                         <h6>Kewarganegaraan</h6>
                                     </label>
-                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
-                                        name="surat_pelampir_statusperkawinan">
+                                    <select class="form-control" id="surat_pelampir_kewarganegaraan"
+                                        name="surat_pelampir_kewarganegaraan">
                                         <option default value="WNI">WNI</option>
                                         <option value="WNA">WNA</option>
                                     </select>
@@ -132,11 +132,10 @@
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
                                 <div class="form-group">
-                                    <label for="surat_pelampir_statusperkawinan">
+                                    <label for="surat_pelampir_agama">
                                         <h6>Agama</h6>
                                     </label>
-                                    <select class="form-control" id="surat_pelampir_statusperkawinan"
-                                        name="surat_pelampir_statusperkawinan">
+                                    <select class="form-control" id="surat_pelampir_agama" name="surat_pelampir_agama">
                                         <option default value="islam">Islam</option>
                                         <option value="kristen">Kristen</option>
                                         <option value="Protestan">Protestan</option>
@@ -211,7 +210,8 @@
                                         <span class="input-group-text">Dokumen Pendukung</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="surat_dokumen">
+                                        <input type="file" class="custom-file-input" id="surat_dokumen"
+                                            name="surat_dokumen">
                                         <label class="custom-file-label" for="surat_dokumen">Choose file</label>
                                     </div>
                                 </div>
@@ -361,7 +361,8 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data Surat
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data
+                                                                Surat
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
