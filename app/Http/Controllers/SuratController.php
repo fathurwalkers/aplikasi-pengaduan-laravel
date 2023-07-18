@@ -97,7 +97,19 @@ class SuratController extends Controller
             'surat_jenis' => $surat_jenis,
             'surat_kode' => $surat_kode,
             'surat_status' => $surat_status,
-            'surat_tanggal' => now(),
+            'surat_tanggal' => strtotime($surat_tanggal),
+
+            'surat_pelampir_nama' => $surat_pelampir_nama,
+            'surat_pelampir_jenkel' => $surat_pelampir_jenkel,
+            'surat_pelampir_tgllahir' => strtotime($surat_tanggal),
+            'surat_pelampir_statusperkawinan' => $surat_pelampir_statusperkawinan,
+            'surat_pelampir_goldarah' => $surat_pelampir_goldarah,
+            'surat_pelampir_kewarganegaraan' => $surat_pelampir_kewarganegaraan,
+            'surat_pelampir_pekerjaan' => $surat_pelampir_pekerjaan,
+            'surat_pelampir_agama' => $surat_pelampir_agama,
+            'surat_pelampir_alamat' => $surat_pelampir_alamat,
+            'surat_dokumen'  => $surat_dokumen,
+
             'login_id' => $login_id,
             'created_at' => now(),
             'updated_at' => now()
