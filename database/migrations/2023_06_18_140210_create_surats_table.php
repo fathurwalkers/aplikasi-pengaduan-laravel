@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('surat_jenis')->nullable();
             $table->string('surat_kode')->nullable();
             $table->string('surat_status')->nullable();
-            $table->dateTime('surat_tanggal')->nullable();
+            $table->date('surat_tanggal')->nullable();
 
             $table->string('surat_pelampir_nama')->nullable();
             $table->string('surat_pelampir_jenkel')->nullable();

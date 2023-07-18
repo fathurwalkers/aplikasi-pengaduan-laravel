@@ -51,6 +51,9 @@ class SuratController extends Controller
 
         $surat_pengirim = $users->login_nama;
         $surat_jenis = $request->surat_jenis;
+        $surat_tanggal = 
+
+
         $surat_kode = "5rt0" . strtolower(Str::random(8));
         $surat_status = "diproses";
         // $surat_tanggal = $request->surat_tanggal;
