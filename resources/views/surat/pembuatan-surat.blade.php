@@ -340,8 +340,8 @@
                                             <div class="">
                                                 <div class="col-sm-12 col-md-12 col-lg-12 btn-group">
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
-                                                        class="btn btn-sm btn-success mr-1" data-toggle="modal"
-                                                        data-target="#modallihat{{ $item->id }}">
+                                                        class="btn btn-sm btn-success mr-1"
+                                                        onclick="location.href = '{{ route('lihat-surat', $item->id) }}'">
                                                         Lihat
                                                     </button>
                                                     <button type="button" id="buttonlihat{{ $item->id }}"

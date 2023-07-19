@@ -47,6 +47,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::group(['prefix' => '/surat'], function () {
         Route::get('/', fn () => redirect()->route('pembuatan-surat'));
         Route::get('/pembuatan-surat', [SuratController::class, 'pembuatan_surat'])->name('pembuatan-surat');
+        Route::get('/lihat-surat/{id}', [SuratController::class, 'lihat_surat'])->name('lihat-surat');
         Route::post('/post-pembuatan-surat', [SuratController::class, 'post_pembuatan_surat'])->name('post-pembuatan-surat');
         Route::post('/konfirmasi-surat', [SuratController::class, 'konfirmasi_surat'])->name('konfirmasi-surat');
         Route::post('/hapus-surat/{id}', [SuratController::class, 'hapus_surat'])->name('hapus-surat');

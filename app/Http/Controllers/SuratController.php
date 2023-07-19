@@ -155,4 +155,10 @@ class SuratController extends Controller
             return redirect()->route('pembuatan-surat')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
         }
     }
+
+    public function lihat_surat($id)
+    {
+        $surat = Surat::find($id);
+        dd($surat);
+    }
 }
