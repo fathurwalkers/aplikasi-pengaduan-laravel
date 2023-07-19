@@ -346,8 +346,8 @@
                                                 </button>
                                             @else
                                                 <button type="button" id="buttonlihat{{ $item->id }}"
-                                                    class="btn btn-sm btn-primary mr-1" data-toggle="modal"
-                                                    data-target="#modallihat{{ $item->id }}">
+                                                    class="btn btn-sm btn-primary mr-1" target="_blank"
+                                                    onclick="window.open('{{ asset('dokumen-surat') }}/{{ $item->surat_dokumen }}')">
                                                     Cek
                                                 </button>
                                             @endif
