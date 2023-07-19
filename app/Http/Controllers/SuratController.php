@@ -55,7 +55,6 @@ class SuratController extends Controller
 
         $surat_pengirim = $users->login_nama;
         $surat_jenis = $request->surat_jenis;
-        $surat_tanggal = $request->surat_tanggal;
         $surat_perihal = $request->surat_perihal;
         $surat_lampiran = $request->surat_lampiran;
         $surat_nomor = $request->surat_nomor;
@@ -68,11 +67,12 @@ class SuratController extends Controller
         $surat_pelampir_alamat = $request->surat_pelampir_alamat;
         $surat_pelampir_agama = $request->surat_pelampir_agama;
         $surat_pelampir_nama = $users->login_nama;
+        $surat_pelampir_tgllahir = $request->surat_pelampir_tgllahir;
 
         dd([
             $surat_pengirim,
             $surat_jenis,
-            $surat_tanggal,
+            $surat_pelampir_tgllahir,
             $surat_perihal,
             $surat_lampiran,
             $surat_nomor,
