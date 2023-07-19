@@ -56,7 +56,7 @@ class SuratController extends Controller
             $ext_dokumen = $surat_dokumen->getClientOriginalExtension();
 
             $randomNamaDokumen = Str::random(10) . "." .$ext_dokumen;
-            $gambar = $request->file('surat_dokumen')->move(public_path('surat.dokumen'), strtolower($randomNamaDokumen));
+            $gambar = $request->file('surat_dokumen')->move(public_path('dokumen-surat'), strtolower($randomNamaDokumen));
         }
 
         $surat_pengirim = $users->login_nama;
@@ -100,6 +100,9 @@ class SuratController extends Controller
         $surat = new Surat;
         $save_surat = $surat->create([
             'surat_pengirim' => $surat_pengirim,
+            'surat_nomor' => $surat_nomor,
+            'surat_lampiran' => $surat_lampiran,
+            'surat_perihal' => $surat_perihal,
             'surat_jenis' => $surat_jenis,
             'surat_kode' => $surat_kode,
             'surat_status' => $surat_status,
