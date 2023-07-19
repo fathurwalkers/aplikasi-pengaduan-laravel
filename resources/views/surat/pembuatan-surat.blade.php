@@ -226,7 +226,7 @@
                                 <label for="berita_isi">
                                     <h6 class="text-dark">Isi Surat</h6>
                                 </label>
-                                <textarea id="berita_isi" name="berita_isi" required></textarea>
+                                <textarea id="berita_isi" name="surat_isi" required></textarea>
                             </div>
                         </div>
 

@@ -161,6 +161,7 @@ class SuratController extends Controller
     public function lihat_surat($id)
     {
         $surat = Surat::find($id);
+        // dd($surat);
         return view('surat.lihat-surat', [
             'surat' => $surat
         ]);

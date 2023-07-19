@@ -57,11 +57,10 @@
                 <hr class="d-block position-absolute"
                     style="width: 100%; height: 1.5px; opacity: 1; background-color: #000000; left: 0; bottom: -23px" />
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            {{ $surat->surat_ }}
-                        </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        {!! $surat->surat_isi !!}
+                        {{ $surat->surat_isi }}
                     </div>
                 </div>
             </div>
