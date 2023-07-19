@@ -353,21 +353,25 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" id="buttonlihat{{ $item->id }}"
-                                                class="btn btn-sm btn-success mr-1" data-toggle="modal"
-                                                data-target="#modallihat{{ $item->id }}">
-                                                Lihat
-                                            </button>
-                                            <button type="button" id="buttonlihat{{ $item->id }}"
-                                                class="btn btn-sm btn-warning mr-1" data-toggle="modal"
-                                                data-target="#modalubah{{ $item->id }}">
-                                                Ubah
-                                            </button>
-                                            <button type="button" id="buttonlihat{{ $item->id }}"
-                                                class="btn btn-sm btn-danger mr-1" data-toggle="modal"
-                                                data-target="#modalhapus{{ $item->id }}">
-                                                Hapus
-                                            </button>
+                                            <div class="">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 btn-group">
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-success mr-1" data-toggle="modal"
+                                                        data-target="#modallihat{{ $item->id }}">
+                                                        Lihat
+                                                    </button>
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-warning mr-1" data-toggle="modal"
+                                                        data-target="#modalubah{{ $item->id }}">
+                                                        Ubah
+                                                    </button>
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-danger mr-1" data-toggle="modal"
+                                                        data-target="#modalhapus{{ $item->id }}">
+                                                        Hapus
+                                                    </button>
+                                                </div>
+                                            </div>
 
                                             <!-- Modal Hapus -->
                                             <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
