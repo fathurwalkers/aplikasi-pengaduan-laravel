@@ -342,13 +342,13 @@
                                         <td class="text-center text-dark">
                                             @if ($item->surat_dokumen == null)
                                                 <button type="button" class="btn btn-sm btn-info mr-1">
-                                                    Tidak ada Dokumen
+                                                    Kosong
                                                 </button>
                                             @else
                                                 <button type="button" id="buttonlihat{{ $item->id }}"
                                                     class="btn btn-sm btn-primary mr-1" data-toggle="modal"
                                                     data-target="#modallihat{{ $item->id }}">
-                                                    Lihat Dokumen
+                                                    Cek
                                                 </button>
                                             @endif
                                         </td>
