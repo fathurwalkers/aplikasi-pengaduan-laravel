@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('surat', function (Blueprint $table) {
             $table->id();
 
+            $table->longText('surat_isi')->nullable();
             $table->string('surat_pengirim')->nullable();
             $table->string('surat_nomor')->nullable();
             $table->string('surat_lampiran')->nullable();

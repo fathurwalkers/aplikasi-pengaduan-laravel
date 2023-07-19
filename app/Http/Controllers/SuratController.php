@@ -65,6 +65,7 @@ class SuratController extends Controller
             $gambar = $request->file('surat_dokumen')->move(public_path('dokumen-surat'), strtolower($randomNamaDokumen));
         }
         $surat_pengirim = $users->login_nama;
+        $surat_isi = $request->surat_isi;
         $surat_jenis = $request->surat_jenis;
         $surat_perihal = $request->surat_perihal;
         $surat_lampiran = $request->surat_lampiran;
@@ -83,6 +84,7 @@ class SuratController extends Controller
         $login_id = $users->id;
         $surat = new Surat;
         $save_surat = $surat->create([
+            'surat_isi' => $surat_isi,
             'surat_pengirim' => $surat_pengirim,
             'surat_nomor' => $surat_nomor,
             'surat_lampiran' => $surat_lampiran,
@@ -159,6 +161,8 @@ class SuratController extends Controller
     public function lihat_surat($id)
     {
         $surat = Surat::find($id);
-        dd($surat);
+        return view('surat.lihat-surat', [
+            'surat' => $surat
+        ]);
     }
 }
