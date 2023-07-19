@@ -279,160 +279,121 @@
                                         </td>
                                         <td class="text-center text-dark">{{ $item->surat_kode }}</td>
                                         <td class="text-center text-dark">
+                                            @switch($item->surat_status)
+                                                @case('diproses')
+                                                    <div class="col-sm-12 col-md-12 col-lg-12 mb-1 btn-block">
+                                                        <button class="btn btn-sm btn-warning text-dark mb-1">
+                                                            <b>{{ strtoupper($item->surat_status) }}</b>
+                                                        </button>
 
-                                            <div class="container">
-                                                <div class="row">
-                                                    @switch($users->login_level)
-                                                        @case('admin')
-                                                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                                            < @break @case('user') <div
-                                                                    class="col-sm-12 col-md-12 col-lg-12">
-                                                                @break
-                                                            @endswitch
-
-                                                            @switch($item->surat_status)
-                                                                @case('diproses')
-                                                                    <div class="col-sm-12 col-md-12 col-lg-12 mb-1 btn-block">
-                                                                        <button class="btn btn-sm btn-warning text-dark mb-1">
-                                                                            <b>{{ strtoupper($item->surat_status) }}</b>
-                                                                        </button>
-
-                                                                        <div class="dropdown">
-                                                                            <button class="btn btn-info dropdown-toggle"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                                aria-expanded="false">
-                                                                                Proses
-                                                                            </button>
-                                                                            <div class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <form action="{{ route('konfirmasi-surat') }}"
-                                                                                    method="POST">
-                                                                                    @csrf
-                                                                                    <input type="hidden" name="id_surat"
-                                                                                        value="{{ $item->id }}">
-                                                                                    <button class="dropdown-item btn"
-                                                                                        type="submit" value="diterima"
-                                                                                        name="buttonkonfirmasi">Terima</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                @break
-
-                                                                @case('diterima')
-                                                                    <button class="btn btn-sm btn-success">
-                                                                        <b>{{ strtoupper($item->surat_status) }}</b>
-                                                                    </button>
-                                                                @break
-                                                            @endswitch
-                                                    </div>
-                                                    {{-- @if ($users->login_level == 'admin')
-                                                            @if ($item->surat_status == 'diproses')
-                                                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                                                    <div class="dropdown">
-                                                                        <button class="btn btn-info dropdown-toggle"
-                                                                            type="button" id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            Proses
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <form action="{{ route('konfirmasi-surat') }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                <input type="hidden" name="id_surat"
-                                                                                    value="{{ $item->id }}">
-                                                                                <button class="dropdown-item btn"
-                                                                                    type="submit" value="diterima"
-                                                                                    name="buttonkonfirmasi">Terima</button>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
+                                                        @if ($users->login_level == 'admin')
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-info dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    Proses
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <form action="{{ route('konfirmasi-surat') }}" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id_surat"
+                                                                            value="{{ $item->id }}">
+                                                                        <button class="dropdown-item btn" type="submit"
+                                                                            value="diterima"
+                                                                            name="buttonkonfirmasi">Terima</button>
+                                                                    </form>
                                                                 </div>
-                                                            @endif
-                                                        @endif --}}
+                                                            </div>
+                                                        @endif
+
+                                                    </div>
+                                                @break
+
+                                                @case('diterima')
+                                                    <button class="btn btn-sm btn-success text-dark mb-1">
+                                                        <b>{{ strtoupper($item->surat_status) }}</b>
+                                                    </button>
+                                                @break
+                                            @endswitch
+                                        </td>
+                                        <td class="text-center text-dark">
+                                            {{ date('d/m/Y', strtotime($item->surat_tanggal)) }}
+                                        </td>
+                                        <td class="text-center text-dark">
+                                            @if ($item->surat_dokumen == null)
+                                                <button type="button" class="btn btn-sm btn-info mr-1">
+                                                    Kosong
+                                                </button>
+                                            @else
+                                                <button type="button" id="buttonlihat{{ $item->id }}"
+                                                    class="btn btn-sm btn-primary mr-1" target="_blank"
+                                                    onclick="openPDF('{{ asset('dokumen-surat') }}/{{ $item->surat_dokumen }}')">
+                                                    Cek
+                                                </button>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <div class="">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 btn-group">
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-success mr-1" data-toggle="modal"
+                                                        data-target="#modallihat{{ $item->id }}">
+                                                        Lihat
+                                                    </button>
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-warning mr-1" data-toggle="modal"
+                                                        data-target="#modalubah{{ $item->id }}">
+                                                        Ubah
+                                                    </button>
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-danger mr-1" data-toggle="modal"
+                                                        data-target="#modalhapus{{ $item->id }}">
+                                                        Hapus
+                                                    </button>
                                                 </div>
                                             </div>
+
+                                            <!-- Modal Hapus -->
+                                            <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data
+                                                                Surat
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('hapus-surat', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin menghapus data surat ini?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Hapus</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END Modal Hapus -->
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
                     </div>
-                    </td>
-                    <td class="text-center text-dark">
-                        {{ date('d/m/Y', strtotime($item->surat_tanggal)) }}
-                    </td>
-                    <td class="text-center text-dark">
-                        @if ($item->surat_dokumen == null)
-                            <button type="button" class="btn btn-sm btn-info mr-1">
-                                Kosong
-                            </button>
-                        @else
-                            <button type="button" id="buttonlihat{{ $item->id }}"
-                                class="btn btn-sm btn-primary mr-1" target="_blank"
-                                onclick="openPDF('{{ asset('dokumen-surat') }}/{{ $item->surat_dokumen }}')">
-                                Cek
-                            </button>
-                        @endif
-                    </td>
-                    <td>
-                        <div class="">
-                            <div class="col-sm-12 col-md-12 col-lg-12 btn-group">
-                                <button type="button" id="buttonlihat{{ $item->id }}"
-                                    class="btn btn-sm btn-success mr-1" data-toggle="modal"
-                                    data-target="#modallihat{{ $item->id }}">
-                                    Lihat
-                                </button>
-                                <button type="button" id="buttonlihat{{ $item->id }}"
-                                    class="btn btn-sm btn-warning mr-1" data-toggle="modal"
-                                    data-target="#modalubah{{ $item->id }}">
-                                    Ubah
-                                </button>
-                                <button type="button" id="buttonlihat{{ $item->id }}"
-                                    class="btn btn-sm btn-danger mr-1" data-toggle="modal"
-                                    data-target="#modalhapus{{ $item->id }}">
-                                    Hapus
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Modal Hapus -->
-                        <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Hapus Data
-                                            Surat
-                                        </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form action="{{ route('hapus-surat', $item->id) }}" method="POST">
-                                        @csrf
-                                        <div class="modal-body">
-                                            Apakah anda yakin ingin menghapus data surat ini?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Batalkan</button>
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END Modal Hapus -->
-                    </td>
-                    </tr>
-                    @endforeach
-
-                    </tbody>
-                    </table>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
 
