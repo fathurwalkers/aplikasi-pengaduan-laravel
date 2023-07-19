@@ -46,16 +46,13 @@ class SuratController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
-
         $surat_dokumen = $request->file('surat_dokumen');
-
         if ($surat_dokumen == null) {
             $surat_dokumen = null;
         } else {
             $surat_dokumen = $request->file('surat_dokumen');
             $ext_dokumen = $surat_dokumen->getClientOriginalExtension();
             $getName = $surat_dokumen->getClientOriginalName();
-
             $explode_text = explode(".", $getName);
             foreach ($explode_text as $value) {
                 $value = strtolower($value);
@@ -64,23 +61,14 @@ class SuratController extends Controller
                     break;
                 }
             }
-            // die;
-
-            dd([
-                $getName,
-                $explode_text,
-            ]);
-
             $randomNamaDokumen = Str::random(10) . "." .$ext_dokumen;
             $gambar = $request->file('surat_dokumen')->move(public_path('dokumen-surat'), strtolower($randomNamaDokumen));
         }
-
         $surat_pengirim = $users->login_nama;
         $surat_jenis = $request->surat_jenis;
         $surat_perihal = $request->surat_perihal;
         $surat_lampiran = $request->surat_lampiran;
         $surat_nomor = $request->surat_nomor;
-
         $surat_pelampir_pekerjaan = $request->surat_pelampir_pekerjaan;
         $surat_pelampir_statusperkawinan = $request->surat_pelampir_statusperkawinan;
         $surat_pelampir_jenkel = $request->surat_pelampir_jenkel;
@@ -90,11 +78,9 @@ class SuratController extends Controller
         $surat_pelampir_agama = $request->surat_pelampir_agama;
         $surat_pelampir_nama = $users->login_nama;
         $surat_pelampir_tgllahir = $request->surat_pelampir_tgllahir;
-
         $surat_kode = "5rt0" . strtolower(Str::random(8));
         $surat_status = "diproses";
         $login_id = $users->id;
-
         $surat = new Surat;
         $save_surat = $surat->create([
             'surat_pengirim' => $surat_pengirim,
@@ -105,7 +91,6 @@ class SuratController extends Controller
             'surat_kode' => $surat_kode,
             'surat_status' => $surat_status,
             'surat_tanggal' => now(),
-
             'surat_pelampir_nama' => $surat_pelampir_nama,
             'surat_pelampir_jenkel' => $surat_pelampir_jenkel,
             'surat_pelampir_tgllahir' => $surat_pelampir_tgllahir,
@@ -116,12 +101,10 @@ class SuratController extends Controller
             'surat_pelampir_agama' => $surat_pelampir_agama,
             'surat_pelampir_alamat' => $surat_pelampir_alamat,
             'surat_dokumen'  => $randomNamaDokumen,
-
             'login_id' => $login_id,
             'created_at' => now(),
             'updated_at' => now()
         ]);
-
         $cek_save_surat = $save_surat->save();
         if ($cek_save_surat == true) {
             return redirect()->route('pembuatan-surat')->with('status', 'Surat telah berhasil dibuat!');
