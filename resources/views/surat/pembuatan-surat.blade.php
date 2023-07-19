@@ -56,7 +56,7 @@
                                         <h6>Tanggal Lahir</h6>
                                     </label>
                                     <input type="date" class="form-control" id="surat_pelampir_tgllahir"
-                                        name="surat_pelampir_tgllahir">
+                                        name="surat_pelampir_tgllahir" value="{{ old('surat_pelampir_tgllahir') }}">
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,8 @@
                                         <h6>Pekerjaan</h6>
                                     </label>
                                     <input type="text" class="form-control" id="surat_pelampir_pekerjaan"
-                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pelampir_pekerjaan">
+                                        placeholder="Masukkan keterangan pengaduan..." name="surat_pelampir_pekerjaan"
+                                        value="{{ old('surat_pelampir_pekerjaan') }}">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
@@ -77,7 +78,8 @@
                                         <h6>Status Pekawinan</h6>
                                     </label>
                                     <select class="form-control" id="surat_pelampir_statusperkawinan"
-                                        name="surat_pelampir_statusperkawinan">
+                                        name="surat_pelampir_statusperkawinan"
+                                        value="{{ old('surat_pelampir_statusperkawinan') }}">
                                         <option default value="menikah">Menikah</option>
                                         <option value="belum menikah">Belum Menikah</option>
                                     </select>
@@ -162,7 +164,8 @@
                                         <h6>Perihal</h6>
                                     </label>
                                     <input type="text" class="form-control" id="surat_perihal"
-                                        placeholder="Masukkan Perihal lampiran surat..." name="surat_perihal">
+                                        placeholder="Masukkan Perihal lampiran surat..." name="surat_perihal"
+                                        value="{{ old('surat_perihal') }}">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
@@ -294,7 +297,8 @@
                                                                     Proses
                                                                 </button>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    <form action="{{ route('konfirmasi-surat') }}" method="POST">
+                                                                    <form action="{{ route('konfirmasi-surat') }}"
+                                                                        method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="id_surat"
                                                                             value="{{ $item->id }}">

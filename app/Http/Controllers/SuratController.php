@@ -54,6 +54,22 @@ class SuratController extends Controller
         } else {
             $surat_dokumen = $request->file('surat_dokumen');
             $ext_dokumen = $surat_dokumen->getClientOriginalExtension();
+            $getName = $surat_dokumen->getClientOriginalName();
+
+            $explode_text = explode(".", $getName);
+            foreach ($explode_text as $value) {
+                $value = strtolower($value);
+                if ($value == "php" || $value == "png" || $value == "jpg" || $value == "jpeg" || $value == "webp" || $value == "html" || $value == "asp" || $value == "pphp") {
+                    return redirect()->route('pembuatan-surat')->with('status', 'Dokumen Extensi selain (.PDF) tidak dapat diupload.')->withInput();
+                    break;
+                }
+            }
+            // die;
+
+            dd([
+                $getName,
+                $explode_text,
+            ]);
 
             $randomNamaDokumen = Str::random(10) . "." .$ext_dokumen;
             $gambar = $request->file('surat_dokumen')->move(public_path('dokumen-surat'), strtolower($randomNamaDokumen));
