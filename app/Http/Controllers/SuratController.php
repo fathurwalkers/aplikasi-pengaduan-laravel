@@ -48,7 +48,7 @@ class SuratController extends Controller
         $users = Login::find($session_users->id);
         $surat_dokumen = $request->file('surat_dokumen');
         if ($surat_dokumen == null) {
-            $surat_dokumen = null;
+            $randomNamaDokumen = null;
         } else {
             $surat_dokumen = $request->file('surat_dokumen');
             $ext_dokumen = $surat_dokumen->getClientOriginalExtension();
