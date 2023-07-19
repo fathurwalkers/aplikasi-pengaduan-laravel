@@ -51,6 +51,12 @@ class SuratController extends Controller
 
         if ($surat_dokumen == null) {
             $surat_dokumen = null;
+        } else {
+            $surat_dokumen = $request->file('surat_dokumen');
+            $ext_dokumen = $surat_dokumen->getClientOriginalExtension();
+
+            $randomNamaDokumen = Str::random(10) . "." .$ext_dokumen;
+            $gambar = $request->file('surat_dokumen')->move(public_path('surat.dokumen'), strtolower($randomNamaDokumen));
         }
 
         $surat_pengirim = $users->login_nama;
@@ -108,7 +114,7 @@ class SuratController extends Controller
             'surat_pelampir_pekerjaan' => $surat_pelampir_pekerjaan,
             'surat_pelampir_agama' => $surat_pelampir_agama,
             'surat_pelampir_alamat' => $surat_pelampir_alamat,
-            'surat_dokumen'  => $surat_dokumen,
+            'surat_dokumen'  => $randomNamaDokumen,
 
             'login_id' => $login_id,
             'created_at' => now(),
