@@ -346,11 +346,6 @@
                                                             Lihat
                                                         </button>
                                                     @endif
-                                                    {{-- <button type="button" id="buttonlihat{{ $item->id }}"
-                                                        class="btn btn-sm btn-warning mr-1" data-toggle="modal"
-                                                        data-target="#modalubah{{ $item->id }}">
-                                                        Ubah
-                                                    </button> --}}
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-danger mr-1" data-toggle="modal"
                                                         data-target="#modalhapus{{ $item->id }}">
