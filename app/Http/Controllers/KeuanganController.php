@@ -61,7 +61,9 @@ class KeuanganController extends Controller
 
     public function hapus_anggaran(Request $request, $id)
     {
-        $anggaran = Anggaran::find($id);
+        $cari_data_anggaran = Anggaran::find($id);
+        $anggaran = Anggaran::where('anggaran_nama', $cari_data_anggaran->anggaran_nama)->get();
+        dd($anggaran);
         $anggaran_hapus = $anggaran->forceDelete();
         if ($anggaran_hapus == true) {
             return redirect()->route('informasi-keuangan')->with('status', 'Data Anggaran telah berhasil dihapus!');
