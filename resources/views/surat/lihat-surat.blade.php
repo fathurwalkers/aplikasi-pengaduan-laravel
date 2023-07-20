@@ -56,16 +56,16 @@
                     style="width: 100%; height: 1.5px; opacity: 1; background-color: #000000; left: 0; bottom: -26px" />
                 <hr class="d-block position-absolute"
                     style="width: 100%; height: 1.5px; opacity: 1; background-color: #000000; left: 0; bottom: -23px" />
-
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        {!! $surat->surat_isi !!}
-                        {{ $surat->surat_isi }}
-                    </div>
-                </div>
             </div>
         </div>
         <!-- end of title -->
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            {!! $surat->surat_isi !!}
+            {{ $surat->surat_isi }}
+        </div>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
