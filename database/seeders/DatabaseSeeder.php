@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        $faker = Faker::create('id_ID');
         // ADMIN
         $token = Str::random(16);
         $role = "admin";
@@ -222,8 +223,9 @@ class DatabaseSeeder extends Seeder
             foreach ($deskripsi as $desk) {
                 switch ($ang->anggaran_tipe) {
                     case 'PENERIMAAN':
-                        $randomDigit = $faker->numberBetween(5,11);
+                        $randomDigit = $faker->numberBetween(5,10);
                         $penerimaan = $faker->randomNumber($randomDigit);
+                        dd($penerimaan);
                         $pengeluaran = NULL;
                         $data_anggaran = new Dataanggaran;
                         $save_data_anggaran = $data_anggaran->create([
@@ -239,9 +241,10 @@ class DatabaseSeeder extends Seeder
                         $save_data_anggaran->save();
                         break;
                     case 'PENERIMAAN':
-                        $randomDigit = $faker->numberBetween(5,11);
+                        $randomDigit = $faker->numberBetween(5,10);
                         $pengeluaran = $faker->randomNumber($randomDigit);
                         $penerimaan = NULL;
+                        dd($pengeluaran);
                         $data_anggaran = new Dataanggaran;
                         $save_data_anggaran = $data_anggaran->create([
                             'data_anggaran_deskripsi' => $desk,
