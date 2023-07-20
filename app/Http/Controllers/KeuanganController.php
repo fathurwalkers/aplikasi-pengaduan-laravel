@@ -52,12 +52,21 @@ class KeuanganController extends Controller
     {
         $anggaran = Anggaran::find($id);
         $data_anggaran = Dataanggaran::where('anggaran_id', $anggaran->id)->get();
-        dd([
-            $anggaran,
-            $data_anggaran
+
+        return view('keuangan.cek-keuangan', [
+            'anggaran' => $anggaran,
+            'data_anggaran' => $data_anggaran,
         ]);
-        return view('keuangan.lihat-keuangan', [
-            'anggaran' => $anggaran
-        ]);
+    }
+
+    public function hapus_anggaran(Request $request, $id)
+    {
+        $anggaran = Anggaran::find($id);
+        $anggaran_hapus = $anggaran->forceDelete();
+        if ($anggaran_hapus == true) {
+            return redirect()->route('informasi-keuangan')->with('status', 'Data Anggaran telah berhasil dihapus!');
+        } else {
+            return redirect()->route('informasi-keuangan')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
+        }
     }
 }

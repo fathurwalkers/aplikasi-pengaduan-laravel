@@ -37,11 +37,11 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($anggaran as $item)
+                                    @foreach ($data_anggaran as $item)
                                         <tr>
                                             <td class="text-center text-dark">{{ $loop->iteration }}</td>
                                             <td class="text-dark">
-                                                {{ date('d/m/Y', strtotime($item->data_anggaran_tanggal)) }}
+                                                {{ date('d/M/Y', strtotime($item->data_anggaran_tanggal)) }}
                                             </td>
                                             <td class="text-dark">{{ $item->data_anggaran_deskripsi }}</td>
                                             <td class="text-dark">{{ $item->data_anggaran_debet }}</td>
@@ -53,13 +53,6 @@
                                                     onclick="location.href='{{ route('cek-keuangan', $item->id) }}'">
                                                     <b>
                                                         Lihat
-                                                    </b>
-                                                </button>
-                                                <button type="button" id="buttonlihat{{ $item->id }}"
-                                                    class="btn btn-sm btn-danger text-dark" data-toggle="modal"
-                                                    data-target="#modalhapus{{ $item->id }}">
-                                                    <b>
-                                                        Hapus
                                                     </b>
                                                 </button>
 
@@ -78,7 +71,7 @@
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                            <form action="{{ route('hapus-kritiksaran', $item->id) }}"
+                                                            <form action="{{ route('hapus-keuangan', $item->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 <div class="modal-body">

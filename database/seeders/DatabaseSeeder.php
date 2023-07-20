@@ -202,24 +202,25 @@ class DatabaseSeeder extends Seeder
 
         $anggaran = Anggaran::all();
 
+        $deskripsi = [
+            'Saldo kas awal',
+            'Iuran bulan Januari',
+            'Iuran bulan Februari',
+            'Iuran bulan Maret',
+            'Iuran bulan April',
+            'Iuran bulan Mei',
+            'Iuran bulan Juni',
+            'Iuran bulan Juli',
+            'Iuran bulan Agustus',
+            'Iuran bulan September',
+            'Iuran bulan Oktober',
+            'Iuran bulan November',
+            'Iuran bulan Desember',
+            'Bantuan Sosial Warga yg Sakit',
+            'Bantuan Sosial Warga Kurang Mampu'
+        ];
+
         foreach ($anggaran as $ang) {
-            $deskripsi = [
-                'Saldo kas awal',
-                'Iuran bulan Januari',
-                'Iuran bulan Februari',
-                'Iuran bulan Maret',
-                'Iuran bulan April',
-                'Iuran bulan Mei',
-                'Iuran bulan Juni',
-                'Iuran bulan Juli',
-                'Iuran bulan Agustus',
-                'Iuran bulan September',
-                'Iuran bulan Oktober',
-                'Iuran bulan November',
-                'Iuran bulan Desember',
-                'Bantuan Sosial Warga yg Sakit',
-                'Bantuan Sosial Warga Kurang Mampu'
-            ];
             foreach ($deskripsi as $desk) {
                 $anggaran_tanggal = $faker->dateTimeBetween('-1 years');
                 switch ($ang->anggaran_tipe) {
@@ -239,7 +240,7 @@ class DatabaseSeeder extends Seeder
                         ]);
                         $save_data_anggaran->save();
                         break;
-                    case 'PENERIMAAN':
+                    case 'PENGELUARAN':
                         $randomDigit = $faker->numberBetween(5,9);
                         $pengeluaran = $faker->randomNumber($randomDigit);
                         $penerimaan = NULL;
