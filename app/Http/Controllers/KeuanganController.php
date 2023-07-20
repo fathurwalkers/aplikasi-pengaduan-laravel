@@ -59,12 +59,13 @@ class KeuanganController extends Controller
         ]);
     }
 
-    public function hapus_anggaran(Request $request, $id)
+    public function hapus_keuangan(Request $request, $id)
     {
         $cari_data_anggaran = Anggaran::find($id);
         $anggaran = Anggaran::where('anggaran_nama', $cari_data_anggaran->anggaran_nama)->get();
-        dd($anggaran);
-        $anggaran_hapus = $anggaran->forceDelete();
+        foreach ($anggaran as $take_anggaran) {
+            $anggaran_hapus = $take_anggaran->forceDelete();
+        }
         if ($anggaran_hapus == true) {
             return redirect()->route('informasi-keuangan')->with('status', 'Data Anggaran telah berhasil dihapus!');
         } else {
