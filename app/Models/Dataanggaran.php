@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Dataanggaran extends Model
 {
     use HasFactory;
+    protected $table = 'data_anggaran';
+    protected $guarded = [];
+    protected $primaryKey = 'id';
+
+    public function anggaran()
+    {
+        return $this->hasMany(Anggaran::class);
+    }
 }
