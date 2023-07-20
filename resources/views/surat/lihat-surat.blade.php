@@ -61,7 +61,7 @@
         <!-- end of title -->
     </div>
     <br />
-    <div class="row">
+    <div class="row mx-4">
         <div class="col-sm-12 col-md-12 col-lg-12">
             {!! $surat->surat_isi !!}
             {{ $surat->surat_isi }}
