@@ -169,5 +169,33 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        Anggaran::create([
+            'anggaran_nama' => 'KAS PEMBANGUNAN LINGKUNGAN TAHUN 2021',
+            'anggaran_tipe' => 'PENERIMAAN',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        Anggaran::create([
+            'anggaran_nama' => 'KAS PEMBANGUNAN LINGKUNGAN TAHUN 2021',
+            'anggaran_tipe' => 'PENGELUARAN',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        Anggaran::create([
+            'anggaran_nama' => 'KAS HUT KEMERDEKAAN RI TAHUN 2021',
+            'anggaran_tipe' => 'PENERIMAAN',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        Anggaran::create([
+            'anggaran_nama' => 'KAS HUT KEMERDEKAAN RI TAHUN 2021',
+            'anggaran_tipe' => 'PENGELUARAN',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 }
