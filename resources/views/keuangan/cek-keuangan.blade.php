@@ -28,8 +28,10 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>No.</th>
-                                        <th>Anggaran</th>
-                                        <th>Tipe</th>
+                                        <th>Tanggal</th>
+                                        <th>Deskripsi</th>
+                                        <th>Debet</th>
+                                        <th>Kredit</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -38,15 +40,19 @@
                                     @foreach ($anggaran as $item)
                                         <tr>
                                             <td class="text-center text-dark">{{ $loop->iteration }}</td>
-                                            <td class="text-dark">{{ $item->anggaran_nama }}</td>
-                                            <td class="text-dark">{{ $item->anggaran_tipe }}</td>
+                                            <td class="text-dark">
+                                                {{ date('d/m/Y', strtotime($item->data_anggaran_tanggal)) }}
+                                            </td>
+                                            <td class="text-dark">{{ $item->data_anggaran_deskripsi }}</td>
+                                            <td class="text-dark">{{ $item->data_anggaran_debet }}</td>
+                                            <td class="text-dark">{{ $item->data_anggaran_kredit }}</td>
 
                                             <td class="d-flex justify-content-center">
                                                 <button type="button" id="buttonlihat{{ $item->id }}"
                                                     class="btn btn-sm btn-info text-dark mr-1"
                                                     onclick="location.href='{{ route('cek-keuangan', $item->id) }}'">
                                                     <b>
-                                                        Cek Data Anggaran
+                                                        Lihat
                                                     </b>
                                                 </button>
                                                 <button type="button" id="buttonlihat{{ $item->id }}"

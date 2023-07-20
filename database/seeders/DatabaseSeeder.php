@@ -224,7 +224,7 @@ class DatabaseSeeder extends Seeder
                 $anggaran_tanggal = $faker->dateTimeBetween('-1 years');
                 switch ($ang->anggaran_tipe) {
                     case 'PENERIMAAN':
-                        $randomDigit = $faker->numberBetween(5,10);
+                        $randomDigit = $faker->numberBetween(5,9);
                         $penerimaan = $faker->randomNumber($randomDigit);
                         $pengeluaran = NULL;
                         $data_anggaran = new Dataanggaran;
@@ -240,7 +240,7 @@ class DatabaseSeeder extends Seeder
                         $save_data_anggaran->save();
                         break;
                     case 'PENERIMAAN':
-                        $randomDigit = $faker->numberBetween(5,10);
+                        $randomDigit = $faker->numberBetween(5,9);
                         $pengeluaran = $faker->randomNumber($randomDigit);
                         $penerimaan = NULL;
                         $data_anggaran = new Dataanggaran;
