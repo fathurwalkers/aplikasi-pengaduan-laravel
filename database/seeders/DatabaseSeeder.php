@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Anggaran;
+use App\Models\Dataanggaran;
 use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -197,5 +198,65 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        $anggaran = Anggaran::all();
+
+        foreach ($anggaran as $ang) {
+            $deskripsi = [
+                'Saldo kas awal',
+                'Iuran bulan Januari',
+                'Iuran bulan Februari',
+                'Iuran bulan Maret',
+                'Iuran bulan April',
+                'Iuran bulan Mei',
+                'Iuran bulan Juni',
+                'Iuran bulan Juli',
+                'Iuran bulan Agustus',
+                'Iuran bulan September',
+                'Iuran bulan Oktober',
+                'Iuran bulan November',
+                'Iuran bulan Desember',
+                'Bantuan Sosial Warga yg Sakit',
+                'Bantuan Sosial Warga Kurang Mampu'
+            ];
+            foreach ($deskripsi as $desk) {
+                switch ($ang->anggaran_tipe) {
+                    case 'PENERIMAAN':
+                        $randomDigit = $faker->numberBetween(5,11);
+                        $penerimaan = $faker->randomNumber($randomDigit);
+                        $pengeluaran = NULL;
+                        $data_anggaran = new Dataanggaran;
+                        $save_data_anggaran = $data_anggaran->create([
+                            'data_anggaran_deskripsi' => $desk,
+                            'data_anggaran_debet' => $penerimaan,
+                            'data_anggaran_kredit' => $pengeluaran,
+                            'data_anggaran_kredit' => $faker->date('d/m/Y H:i:s'),
+                            'anggaran_id' => $ang->id,
+                            'created_at' => now(),
+                            'updated_at' => now()
+                        ]);
+                        dd($save_data_anggaran);
+                        $save_data_anggaran->save();
+                        break;
+                    case 'PENERIMAAN':
+                        $randomDigit = $faker->numberBetween(5,11);
+                        $pengeluaran = $faker->randomNumber($randomDigit);
+                        $penerimaan = NULL;
+                        $data_anggaran = new Dataanggaran;
+                        $save_data_anggaran = $data_anggaran->create([
+                            'data_anggaran_deskripsi' => $desk,
+                            'data_anggaran_debet' => $penerimaan,
+                            'data_anggaran_kredit' => $pengeluaran,
+                            'data_anggaran_kredit' => $faker->date('d/m/Y H:i:s'),
+                            'anggaran_id' => $ang->id,
+                            'created_at' => now(),
+                            'updated_at' => now()
+                        ]);
+                        dd($save_data_anggaran);
+                        $save_data_anggaran->save();
+                        break;
+                }
+            }
+        }
     }
 }
