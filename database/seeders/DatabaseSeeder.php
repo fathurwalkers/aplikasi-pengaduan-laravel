@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Anggaran;
 use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -150,6 +152,20 @@ class DatabaseSeeder extends Seeder
             'login_token' => $hashToken,
             'login_level' => $role,
             'login_status' => "verified",
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        Anggaran::create([
+            'anggaran_nama' => 'KAS RUKUN KEMATIAN DAN SOSIAL',
+            'anggaran_tipe' => 'PENERIMAAN',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        Anggaran::create([
+            'anggaran_nama' => 'KAS RUKUN KEMATIAN DAN SOSIAL',
+            'anggaran_tipe' => 'PENGELUARAN',
             'created_at' => now(),
             'updated_at' => now()
         ]);
