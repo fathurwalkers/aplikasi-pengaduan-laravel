@@ -31,8 +31,12 @@ class KeuanganController extends Controller
         ]);
     }
 
-    public function lihat_keuangan()
+    public function lihat_keuangan($id)
     {
         $anggaran = Anggaran::find($id);
+        dd($anggaran);
+        return view('keuangan.lihat-keuangan', [
+            'anggaran' => $anggaran
+        ]);
     }
 }
