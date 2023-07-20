@@ -222,7 +222,6 @@ class DatabaseSeeder extends Seeder
             ];
             foreach ($deskripsi as $desk) {
                 $anggaran_tanggal = $faker->dateTimeBetween('-1 years');
-                dd($anggaran_tanggal);
                 switch ($ang->anggaran_tipe) {
                     case 'PENERIMAAN':
                         $randomDigit = $faker->numberBetween(5,10);
@@ -238,7 +237,6 @@ class DatabaseSeeder extends Seeder
                             'created_at' => now(),
                             'updated_at' => now()
                         ]);
-                        dd($save_data_anggaran);
                         $save_data_anggaran->save();
                         break;
                     case 'PENERIMAAN':
@@ -255,7 +253,6 @@ class DatabaseSeeder extends Seeder
                             'created_at' => now(),
                             'updated_at' => now()
                         ]);
-                        dd($save_data_anggaran);
                         $save_data_anggaran->save();
                         break;
                 }
