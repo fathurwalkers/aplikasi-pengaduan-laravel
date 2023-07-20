@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <title>Invoice</title>
+    <title>Surat - {{ $surat->surat_kode }}</title>
 
     <style>
         .table-content thead {
@@ -61,10 +61,42 @@
         <!-- end of title -->
     </div>
     <br />
-    <div class="row mx-4">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            {!! $surat->surat_isi !!}
-            {{ $surat->surat_isi }}
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-10">
+
+                <div class="row">
+                    <table class="table table-borderless border-dark">
+                        <tr>
+                            <td class="">Pengirim : {{ $surat->surat_pelampir_nama }}</td>
+                            <td class="d-flex justify-content-end">Nomor : {{ $surat->surat_nomor }}</td>
+                        </tr>
+                        <tr>
+                            <td class="">Lampiran : {{ $surat->surat_lampiran }}</td>
+                            <td class="d-flex justify-content-end">Kode : {{ $surat->surat_kode }}</td>
+                        </tr>
+                        <tr>
+                            <td class="">Perihal : {{ $surat->surat_perihal }}</td>
+                            <td class="d-flex justify-content-end">Alamat : {{ $surat->surat_pelampir_alamat }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        {!! $surat->surat_isi !!}
+                        {{ $surat->surat_isi }}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
         </div>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
