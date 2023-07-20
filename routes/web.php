@@ -73,6 +73,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::group(['prefix' => '/keuangan'], function () {
         Route::get('/', fn () => redirect()->route('informasi-keuangan'));
         Route::get('/informasi-keuangan', [KeuanganController::class, 'informasi_keuangan'])->name('informasi-keuangan');
+        Route::get('/lihat-keuangan/{id}', [KeuanganController::class, 'lihat_keuangan'])->name('lihat-keuangan');
     });
 });
 

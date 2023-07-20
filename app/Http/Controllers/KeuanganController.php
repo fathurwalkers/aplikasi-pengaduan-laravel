@@ -10,6 +10,7 @@ use Illuminate\Support\{
     Arr
 };
 use App\Models\{
+    Anggaran,
     Login,
     Pengaduan,
     Kritiksaran,
@@ -28,5 +29,10 @@ class KeuanganController extends Controller
         return view('keuangan.informasi-keuangan', [
             'users' => $users
         ]);
+    }
+
+    public function lihat_keuangan()
+    {
+        $anggaran = Anggaran::find($id);
     }
 }
