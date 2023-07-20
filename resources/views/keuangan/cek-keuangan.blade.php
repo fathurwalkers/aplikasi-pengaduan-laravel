@@ -44,8 +44,12 @@
                                                 {{ date('d/M/Y', strtotime($item->data_anggaran_tanggal)) }}
                                             </td>
                                             <td class="text-dark">{{ $item->data_anggaran_deskripsi }}</td>
-                                            <td class="text-dark">{{ $item->data_anggaran_debet }}</td>
-                                            <td class="text-dark">{{ $item->data_anggaran_kredit }}</td>
+                                            <td class="text-dark">
+                                                {{ 'Rp ' . number_format($item->data_anggaran_debet, 2, ',', '.') }}
+                                            </td>
+                                            <td class="text-dark">
+                                                {{ 'Rp ' . number_format($item->data_anggaran_kredit, 2, ',', '.') }}
+                                            </td>
 
                                             <td class="d-flex justify-content-center">
                                                 <button type="button" id="buttonlihat{{ $item->id }}"
