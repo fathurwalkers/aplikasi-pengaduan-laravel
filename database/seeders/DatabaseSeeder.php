@@ -221,6 +221,8 @@ class DatabaseSeeder extends Seeder
                 'Bantuan Sosial Warga Kurang Mampu'
             ];
             foreach ($deskripsi as $desk) {
+                $anggaran_tanggal = $faker->dateTimeBetween('-1 years');
+                dd($anggaran_tanggal);
                 switch ($ang->anggaran_tipe) {
                     case 'PENERIMAAN':
                         $randomDigit = $faker->numberBetween(5,10);
@@ -231,7 +233,7 @@ class DatabaseSeeder extends Seeder
                             'data_anggaran_deskripsi' => $desk,
                             'data_anggaran_debet' => $penerimaan,
                             'data_anggaran_kredit' => $pengeluaran,
-                            'data_anggaran_kredit' => $faker->date('d/m/Y H:i:s'),
+                            'data_anggaran_tanggal' => $anggaran_tanggal,
                             'anggaran_id' => $ang->id,
                             'created_at' => now(),
                             'updated_at' => now()
@@ -248,7 +250,7 @@ class DatabaseSeeder extends Seeder
                             'data_anggaran_deskripsi' => $desk,
                             'data_anggaran_debet' => $penerimaan,
                             'data_anggaran_kredit' => $pengeluaran,
-                            'data_anggaran_kredit' => $faker->date('d/m/Y H:i:s'),
+                            'data_anggaran_tanggal' => $anggaran_tanggal,
                             'anggaran_id' => $ang->id,
                             'created_at' => now(),
                             'updated_at' => now()
