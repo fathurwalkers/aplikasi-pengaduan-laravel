@@ -16,6 +16,9 @@ return new class extends Migration
             $table->integer('data_anggaran_kredit')->nullable();
             $table->date('data_anggaran_tanggal')->nullable();
 
+            $table->unsignedBigInteger('anggaran_id')->nullable()->default(null);
+            $table->foreign('anggaran_id')->references('id')->on('anggaran')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

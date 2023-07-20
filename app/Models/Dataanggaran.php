@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Anggaran;
 
 class Dataanggaran extends Model
 {
@@ -14,6 +15,6 @@ class Dataanggaran extends Model
 
     public function anggaran()
     {
-        return $this->hasMany(Anggaran::class);
+        return $this->belongsTo(Anggaran::class);
     }
 }
