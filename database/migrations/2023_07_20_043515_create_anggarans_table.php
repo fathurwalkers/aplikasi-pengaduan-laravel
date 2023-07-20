@@ -10,6 +10,12 @@ return new class extends Migration
     {
         Schema::create('anggaran', function (Blueprint $table) {
             $table->id();
+
+            $table->string('anggaran_deskripsi')->nullable();
+            $table->string('anggaran_keterangan')->nullable();
+            $table->integer('anggaran_debet')->nullable();
+            $table->integer('anggaran_kredit')->nullable();
+
             $table->timestamps();
         });
     }
