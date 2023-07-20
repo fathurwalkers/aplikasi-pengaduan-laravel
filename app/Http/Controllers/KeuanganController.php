@@ -72,4 +72,16 @@ class KeuanganController extends Controller
             return redirect()->route('informasi-keuangan')->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
         }
     }
+
+    public function hapus_data_keuangan(Request $request, $id)
+    {
+        $anggaran = Dataanggaran::find($id);
+        $id_anggaran = $anggaran->anggaran_id;
+        $anggaran_hapus = $anggaran->forceDelete();
+        if ($anggaran_hapus == true) {
+            return redirect()->route('cek-keuangan', $id_anggaran)->with('status', 'Data Anggaran telah berhasil dihapus!');
+        } else {
+            return redirect()->route('cek-keuangan', $id_anggaran)->with('status', 'Terjadi kesalahan. Data tidak dapat dihapus.');
+        }
+    }
 }
