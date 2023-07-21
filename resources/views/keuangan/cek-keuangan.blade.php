@@ -56,13 +56,6 @@
                                             @if ($users->login_level == 'admin')
                                                 <td class="d-flex justify-content-center">
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
-                                                        class="btn btn-sm btn-info text-dark mr-1"
-                                                        onclick="location.href='{{ route('cek-keuangan', $item->id) }}'">
-                                                        <b>
-                                                            Lihat
-                                                        </b>
-                                                    </button>
-                                                    <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-danger text-dark" data-toggle="modal"
                                                         data-target="#modalhapus{{ $item->id }}">
                                                         <b>

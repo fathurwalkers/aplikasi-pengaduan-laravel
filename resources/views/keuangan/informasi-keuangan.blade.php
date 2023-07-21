@@ -49,6 +49,13 @@
                                                         Cek Data Anggaran
                                                     </b>
                                                 </button>
+                                                <button type="button" id="buttonlihat{{ $item->id }}"
+                                                    class="btn btn-sm btn-warning text-dark mr-1"
+                                                    onclick="location.href='{{ route('lihat-keuangan', $item->id) }}'">
+                                                    <b>
+                                                        Lihat
+                                                    </b>
+                                                </button>
                                                 @if ($users->login_level == 'admin')
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-danger text-dark" data-toggle="modal"
