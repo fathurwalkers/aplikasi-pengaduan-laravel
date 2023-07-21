@@ -32,7 +32,9 @@
                                         <th>Deskripsi</th>
                                         <th>Debet</th>
                                         <th>Kredit</th>
-                                        <th>Aksi</th>
+                                        @if ($users->login_level == 'admin')
+                                            <th>Aksi</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,15 +53,15 @@
                                                 {{ 'Rp ' . number_format($item->data_anggaran_kredit, 2, ',', '.') }}
                                             </td>
 
-                                            <td class="d-flex justify-content-center">
-                                                <button type="button" id="buttonlihat{{ $item->id }}"
-                                                    class="btn btn-sm btn-info text-dark mr-1"
-                                                    onclick="location.href='{{ route('cek-keuangan', $item->id) }}'">
-                                                    <b>
-                                                        Lihat
-                                                    </b>
-                                                </button>
-                                                @if ($users->login_level == 'admin')
+                                            @if ($users->login_level == 'admin')
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-info text-dark mr-1"
+                                                        onclick="location.href='{{ route('cek-keuangan', $item->id) }}'">
+                                                        <b>
+                                                            Lihat
+                                                        </b>
+                                                    </button>
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-danger text-dark" data-toggle="modal"
                                                         data-target="#modalhapus{{ $item->id }}">
@@ -67,43 +69,40 @@
                                                             Hapus
                                                         </b>
                                                     </button>
-                                                @endif
-
-                                                <!-- Modal Hapus -->
-                                                <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Kritik
-                                                                    dan
-                                                                    Saran
-                                                                </h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <form action="{{ route('hapus-data-keuangan', $item->id) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                <div class="modal-body">
-                                                                    Apakah anda yakin ingin menghapus Data Anggaran
-                                                                    ini?
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Batalkan</button>
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger">Hapus</button>
-                                                                </div>
-                                                            </form>
+                                                </td>
+                                            @endif
+                                            <!-- Modal Hapus -->
+                                            <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Kritik
+                                                                dan
+                                                                Saran
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
+                                                        <form action="{{ route('hapus-data-keuangan', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin menghapus Data Anggaran
+                                                                ini?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                                <!-- END Modal Hapus -->
-
-                                            </td>
+                                            </div>
+                                            <!-- END Modal Hapus -->
                                         </tr>
                                     @endforeach
 

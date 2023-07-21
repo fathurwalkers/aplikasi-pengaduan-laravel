@@ -49,13 +49,15 @@
                                                         Cek Data Anggaran
                                                     </b>
                                                 </button>
-                                                <button type="button" id="buttonlihat{{ $item->id }}"
-                                                    class="btn btn-sm btn-danger text-dark" data-toggle="modal"
-                                                    data-target="#modalhapus{{ $item->id }}">
-                                                    <b>
-                                                        Hapus
-                                                    </b>
-                                                </button>
+                                                @if ($users->login_level == 'admin')
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-danger text-dark" data-toggle="modal"
+                                                        data-target="#modalhapus{{ $item->id }}">
+                                                        <b>
+                                                            Hapus
+                                                        </b>
+                                                    </button>
+                                                @endif
                                                 <!-- Modal Hapus -->
                                                 <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
