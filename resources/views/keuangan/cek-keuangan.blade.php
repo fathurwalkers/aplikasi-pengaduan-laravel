@@ -54,7 +54,7 @@
                                                     <h6>Jumlah Debet (Penerimaan)</h6>
                                                 </label>
                                                 <input type="number" class="form-control" id="data_anggaran_debet"
-                                                    placeholder="Masukkan keterangan pengaduan..." name="data_anggaran_debet">
+                                                    placeholder="Masukkan jumlah Debet" name="data_anggaran_debet">
                                             </div>
                                         </div>
                                     @break
@@ -66,7 +66,7 @@
                                                     <h6>Jumlah Kredit (Pengeluaran)</h6>
                                                 </label>
                                                 <input type="number" class="form-control" id="data_anggaran_kredit"
-                                                    placeholder="Masukkan keterangan pengaduan..." name="data_anggaran_kredit">
+                                                    placeholder="Masukkan jumlah Kredit" name="data_anggaran_kredit">
                                             </div>
                                         </div>
                                     @break
