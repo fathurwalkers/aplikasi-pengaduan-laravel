@@ -176,7 +176,18 @@
                                 <td>Agama</td>
                                 <td>:</td>
                                 <td>
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                    @php
+                                        $array_agama = ['islam', 'kristen', 'Protestan', 'katolik', 'Hindu', 'Buddha', 'konghucu', 'lainnya'];
+                                    @endphp
+
+                                    @foreach ($array_agama as $item)
+                                        <label>
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1" @if ($surat->surat_pelampir_agama == $item) checked @endif />
+                                            {{ $item }}
+                                        </label>/
+                                    @endforeach
+                                    {{-- <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
                                             value="option1" /> Islam</label>/
                                     <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
                                             value="option2" /> Kristen</label>/
@@ -187,7 +198,7 @@
                                     <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
                                             value="option5" /> Budha</label>/
                                     <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
-                                            value="option6" /> Konghucu</label>
+                                            value="option6" /> Konghucu</label> --}}
                                 </td>
                             </tr>
                             <tr>
@@ -204,57 +215,241 @@
                                 <td style="padding-left: 85px">:</td>
                                 <td>
                                     <ol class="mb-0">
+
                                         @if ($surat->surat_jenis == 'surat_usaha')
                                             <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled checked />
                                                     Surat Izin Usaha
                                                 </label>
                                             </li>
                                             <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled />
                                                     Surat Kematian
                                                 </label>
                                             </li>
                                             <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled />
                                                     Surat Domisili
                                                 </label>
                                             </li>
                                             <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled />
                                                     Surat Pengantar Nikah
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Keramaian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Keterangan Ahli Waris
                                                 </label>
                                             </li>
                                         @endif
 
-                                        <li>
-                                            @if ($surat->surat_jenis == 'surat_pengantar_nikah')
+                                        @if ($surat->surat_jenis == 'surat_kematian')
+                                            <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Usaha
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled checked />
+                                                    Surat Kematian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Domisili
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
                                                     Surat Pengantar Nikah
                                                 </label>
-                                            @endif
-                                        </li>
-                                        <li>
-                                            @if ($surat->surat_jenis == 'surat_izin_keramaian')
+                                            </li>
+                                            <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled />
                                                     Surat Izin Keramaian
                                                 </label>
-                                            @endif
-                                        </li>
-                                        <li>
-                                            @if ($surat->surat_jenis == 'surat_keterangan_ahli_waris')
+                                            </li>
+                                            <li>
                                                 <label> <input class="form-check-input" type="checkbox"
-                                                        id="inlineCheckbox1" value="option1" checked />
+                                                        id="inlineCheckbox1" value="option1" disabled />
                                                     Surat Keterangan Ahli Waris
                                                 </label>
-                                            @endif
-                                        </li>
+                                            </li>
+                                        @endif
+
+                                        @if ($surat->surat_jenis == 'surat_domisili')
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Usaha
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Kematian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled checked />
+                                                    Surat Domisili
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Pengantar Nikah
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Keramaian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Keterangan Ahli Waris
+                                                </label>
+                                            </li>
+                                        @endif
+
+                                        @if ($surat->surat_jenis == 'surat_pengantar_nikah')
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Usaha
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Kematian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Domisili
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled checked />
+                                                    Surat Pengantar Nikah
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Keramaian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Keterangan Ahli Waris
+                                                </label>
+                                            </li>
+                                        @endif
+
+                                        @if ($surat->surat_jenis == 'surat_izin_keramaian')
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Usaha
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Kematian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Domisili
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Pengantar Nikah
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled checked />
+                                                    Surat Izin Keramaian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Keterangan Ahli Waris
+                                                </label>
+                                            </li>
+                                        @endif
+
+                                        @if ($surat->surat_jenis == 'surat_keterangan_ahli_waris')
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Usaha
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Kematian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Domisili
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Pengantar Nikah
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled />
+                                                    Surat Izin Keramaian
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label> <input class="form-check-input" type="checkbox"
+                                                        id="inlineCheckbox1" value="option1" disabled checked />
+                                                    Surat Keterangan Ahli Waris
+                                                </label>
+                                            </li>
+                                        @endif
+
                                     </ol>
                                 </td>
                             </tr>
