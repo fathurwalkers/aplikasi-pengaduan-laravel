@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-12 mt-2">
                 <div class="date text-end">
-                    <p>Balikpapan,.............-............-20</p>
+                    <p>Balikpapan, {{ date('d, M, Y', strtotime($surat->created_at)) }}</p>
                 </div>
             </div>
             <div class="col-12">
@@ -77,18 +77,22 @@
                                 <td>Nomor</td>
                                 <td class="">:</td>
                                 <td class="ps-3">
-                                    
+                                    {{ $surat->surat_nomor }}
                                 </td>
                             </tr>
                             <tr>
                                 <td>Lampiran</td>
                                 <td class="">:</td>
-                                <td class="fw-bold"></td>
+                                <td class="fw-bold">
+                                    {{ $surat->surat_lampiran }}
+                                </td>
                             </tr>
                             <tr>
                                 <td>Perihal</td>
                                 <td class="">:</td>
-                                <td class="">Surat Pengantar</td>
+                                <td class="">
+                                    {{ $surat->surat_perihal }}
+                                </td>
                             </tr>
                         </table>
                     </div>
