@@ -82,6 +82,23 @@ class KeuanganController extends Controller
         return redirect()->route('cek-keuangan', $anggaran->id)->with('status', 'Data Anggaran baru telah berhasil ditambahkan.');
     }
 
+    public function ubah_keuangan(Request $request, $id)
+    {
+        $anggaran_nama = $request->anggaran_nama;
+        $anggaran_id = Anggaran::find($id);
+        $anggaran = Anggaran::where('anggaran_nama', $anggaran_id->anggaran_nama)->get();
+        $anggaran_nama_lama = $anggaran_id->anggaran_nama;
+        $anggaran_nama_baru = $request->anggaran_nama;
+        foreach ($anggaran as $hehehe) {
+            $update_anggaran = $hehehe->update([
+                'anggaran_nama' => $anggaran_nama,
+                'updated_at' => now()
+            ]);
+        }
+        $alert = "Data Anggaran". $anggaran_nama_lama . " telah berhasil diubah ke " . $anggaran_nama_baru .".";
+        return redirect()->route('informasi-keuangan')->with('status', $alert);
+    }
+
     public function cek_keuangan($id)
     {
         $anggaran = Anggaran::find($id);
