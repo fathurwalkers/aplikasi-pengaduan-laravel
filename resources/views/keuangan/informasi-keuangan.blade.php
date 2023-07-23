@@ -17,9 +17,54 @@
             <div class="card-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
+
+                        <div class="col-sm-6 col-md-6 col-lg-6">
                             <h5 class="my-auto text-dark">Daftar Kritik dan Saran</h5>
                         </div>
+
+                        <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                            <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                data-target="#tambahanggaran">
+                                Tambah Data Anggaran
+                            </button>
+                        </div>
+
+                        <!-- Modal Hapus -->
+                        <div class="modal fade" id="tambahanggaran" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Tambah Data Anggaran
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="{{ route('tambah-keuangan') }}" method="POST">
+                                        @csrf
+                                        <div class="modal-body">
+                                            Silahkan mengisi informasi anggaran yang akan ditambah.
+                                            <br />
+                                            <div class="row mt-2">
+                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <input type="text" class="form-control" id="anggaran_nama"
+                                                        placeholder="..." name="anggaran_nama">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Batalkan</button>
+                                            <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Modal Hapus -->
+
                     </div>
                     <hr />
                     <div class="row">

@@ -13,6 +13,56 @@
 @section('main-content')
     <div class="container mt-2">
 
+        @if ($users->login_level == 'admin')
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+
+                        <form action="{{ route('post-pembuatan-kritiksaran') }}" method="post">
+                            @csrf
+
+                            <p class="text-dark">Silahkan masukkan kritik dan saran yang ingin anda sampaikan pada beberapa
+                                form pengajuan
+                                dibawah.</p>
+
+                            <div class="row">
+
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="kritiksaran_keterangan">
+                                            <h6>Keterangan</h6>
+                                        </label>
+                                        <input type="text" class="form-control" id="kritiksaran_keterangan"
+                                            placeholder="Masukkan keterangan pengaduan..." name="kritiksaran_keterangan">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="berita_tanggal">
+                                            <h6 class="text-dark">Tanggal Terbit</h6>
+                                        </label>
+                                        <input type="date" class="form-control" id="berita_tanggal" name="berita_tanggal"
+                                            required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-info btn-md">
+                                        Proses Kritik dan Saran
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="card mb-3">
             <div class="card-body">
                 <div class="container">

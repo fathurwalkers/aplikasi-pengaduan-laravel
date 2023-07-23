@@ -75,6 +75,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
         Route::get('/informasi-keuangan', [KeuanganController::class, 'informasi_keuangan'])->name('informasi-keuangan');
         Route::get('/cek-keuangan/{id}', [KeuanganController::class, 'cek_keuangan'])->name('cek-keuangan');
         Route::get('/lihat-keuangan/{id}', [KeuanganController::class, 'lihat_keuangan'])->name('lihat-keuangan');
+        Route::post('/tambah-keuangan', [KeuanganController::class, 'tambah_keuangan'])->name('tambah-keuangan');
         Route::post('/hapus-keuangan/{id}', [KeuanganController::class, 'hapus_keuangan'])->name('hapus-keuangan');
         Route::post('/hapus-data-keuangan/{id}', [KeuanganController::class, 'hapus_data_keuangan'])->name('hapus-data-keuangan');
     });

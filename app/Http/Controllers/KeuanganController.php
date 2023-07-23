@@ -44,6 +44,23 @@ class KeuanganController extends Controller
         ]);
     }
 
+    public function tambah_keuangan(Request $request)
+    {
+        $anggaran_nama = $request->anggaran_nama;
+        $array_tipe_anggaran = ["PENGELUARAN", "PENERIMAAN"];
+        foreach ($array_tipe_anggaran as $value) {
+            $anggaran = new Anggaran;
+            $save_anggaran = $anggaran->create([
+                'anggaran_nama' => $anggaran_nama,
+                'anggaran_tipe' => $value,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $save_anggaran->save();
+        }
+        return redirect()->route('informasi-keuangan')->with('status', 'Data Anggaran baru telah berhasil ditambahkan.');
+    }
+
     public function cek_keuangan($id)
     {
         $anggaran = Anggaran::find($id);
