@@ -131,6 +131,13 @@
                                             @if ($users->login_level == 'admin')
                                                 <td class="d-flex justify-content-center">
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-info text-dark mr-1" data-toggle="modal"
+                                                        data-target="#modalubah{{ $item->id }}">
+                                                        <b>
+                                                            Ubah
+                                                        </b>
+                                                    </button>
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-danger text-dark" data-toggle="modal"
                                                         data-target="#modalhapus{{ $item->id }}">
                                                         <b>
@@ -139,6 +146,102 @@
                                                     </button>
                                                 </td>
                                             @endif
+
+                                            <!-- Modal Ubah -->
+                                            <div class="modal fade" id="modalubah{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                                Ubah Anggaran
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('ubah-data-keuangan', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="anggaran_tipe"
+                                                                value="{{ $anggaran->anggaran_tipe }}">
+                                                            <input type="hidden" name="anggaran_id"
+                                                                value="{{ $anggaran->id }}">
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="form-group">
+                                                                            <label for="data_anggaran_deskripsi">
+                                                                                <h6>Keterangan</h6>
+                                                                            </label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="data_anggaran_deskripsi"
+                                                                                placeholder="Masukkan keterangan pengaduan..."
+                                                                                name="data_anggaran_deskripsi"
+                                                                                value="{{ $item->data_anggaran_deskripsi }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="form-group">
+                                                                            <label for="data_anggaran_tanggal">
+                                                                                <h6 class="text-dark">Tanggal Terbit</h6>
+                                                                            </label>
+                                                                            <input type="date" class="form-control"
+                                                                                id="data_anggaran_tanggal"
+                                                                                name="data_anggaran_tanggal"
+                                                                                value="{{ $item->data_anggaran_tanggal }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    @switch($anggaran->anggaran_tipe)
+                                                                        @case('PENERIMAAN')
+                                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="data_anggaran_debet">
+                                                                                        <h6>Jumlah Debet (Penerimaan)</h6>
+                                                                                    </label>
+                                                                                    <input type="number" class="form-control"
+                                                                                        id="data_anggaran_debet"
+                                                                                        placeholder="Masukkan keterangan pengaduan..."
+                                                                                        name="data_anggaran_debet"
+                                                                                        value="{{ $item->data_anggaran_debet }}">
+                                                                                </div>
+                                                                            </div>
+                                                                        @break
+
+                                                                        @case('PENGELUARAN')
+                                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="data_anggaran_kredit">
+                                                                                        <h6>Jumlah Kredit (Pengeluaran)</h6>
+                                                                                    </label>
+                                                                                    <input type="number" class="form-control"
+                                                                                        id="data_anggaran_kredit"
+                                                                                        placeholder="Masukkan keterangan pengaduan..."
+                                                                                        name="data_anggaran_kredit"
+                                                                                        value="{{ $item->data_anggaran_kredit }}">
+                                                                                </div>
+                                                                            </div>
+                                                                        @break
+                                                                    @endswitch
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit" class="btn btn-success">Ubah
+                                                                    Data</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END Modal Ubah -->
+
                                             <!-- Modal Hapus -->
                                             <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -164,7 +267,8 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">Batalkan</button>
-                                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Hapus</button>
                                                             </div>
                                                         </form>
                                                     </div>
