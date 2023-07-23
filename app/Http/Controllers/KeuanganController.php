@@ -103,8 +103,9 @@ class KeuanganController extends Controller
     {
         $data_anggaran_deskripsi = $request->data_anggaran_deskripsi;
         $data_anggaran_tanggal = $request->data_anggaran_tanggal;
-        $anggaran_tipe = $request->anggaran_tipe;
-        switch ($anggaran) {
+        $anggaran_id = $request->anggaran_id;
+        $anggaran = Anggaran::find($anggaran_id);
+        switch ($anggaran->anggaran_tipe) {
             case 'PENERIMAAN':
                 $data_anggaran_debet = $request->data_anggaran_debet;
                 $data_anggaran_kredit = NULL;

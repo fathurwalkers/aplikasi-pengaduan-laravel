@@ -164,8 +164,6 @@
                                                         <form action="{{ route('ubah-data-keuangan', $item->id) }}"
                                                             method="POST">
                                                             @csrf
-                                                            <input type="hidden" name="anggaran_tipe"
-                                                                value="{{ $anggaran->anggaran_tipe }}">
                                                             <input type="hidden" name="anggaran_id"
                                                                 value="{{ $anggaran->id }}">
                                                             <div class="modal-body">
