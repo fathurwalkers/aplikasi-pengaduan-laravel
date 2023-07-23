@@ -223,14 +223,14 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label for="berita_isi">
                                     <h6 class="text-dark">Isi Surat</h6>
                                 </label>
-                                <textarea id="berita_isi" name="surat_isi" required></textarea>
+                                <textarea id="berita_isi" name="surat_isi"></textarea>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row mt-1 mb-2">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
