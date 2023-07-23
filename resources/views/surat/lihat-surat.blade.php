@@ -62,40 +62,210 @@
     </div>
     <br />
     <br />
-    <div class="container">
+    <div class="container px-5" style="width: 70%">
         <div class="row">
-            <div class="col-sm-2 col-md-2 col-lg-2">
-
-            </div>
-            <div class="col-sm-10 col-md-10 col-lg-10">
-
-                <div class="row">
-                    <table class="table table-borderless border-dark">
-                        <tr>
-                            <td class="">Pengirim : {{ $surat->surat_pelampir_nama }}</td>
-                            <td class="d-flex justify-content-end">Nomor : {{ $surat->surat_nomor }}</td>
-                        </tr>
-                        <tr>
-                            <td class="">Lampiran : {{ $surat->surat_lampiran }}</td>
-                            <td class="d-flex justify-content-end">Kode : {{ $surat->surat_kode }}</td>
-                        </tr>
-                        <tr>
-                            <td class="">Perihal : {{ $surat->surat_perihal }}</td>
-                            <td class="d-flex justify-content-end">Alamat : {{ $surat->surat_pelampir_alamat }}</td>
-                        </tr>
-                    </table>
+            <div class="col-12 mt-2">
+                <div class="date text-end">
+                    <p>Balikpapan,.............-............-20</p>
                 </div>
-
-                <div class="row mt-4">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        {!! $surat->surat_isi !!}
-                        {{ $surat->surat_isi }}
+            </div>
+            <div class="col-12">
+                <div class="box d-flex justify-content-between">
+                    <div class="number">
+                        <table class="">
+                            <tr>
+                                <td>Nomor</td>
+                                <td class="">:</td>
+                                <td class="ps-3">/SP/RT.031/BA/ /20</td>
+                            </tr>
+                            <tr>
+                                <td>Lampiran</td>
+                                <td class="">:</td>
+                                <td class="fw-bold"></td>
+                            </tr>
+                            <tr>
+                                <td>Perihal</td>
+                                <td class="">:</td>
+                                <td class="">Surat Pengantar</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="nama" style="padding-right: 115px">
+                        <p class="mb-0">Kepada</p>
+                        <p class="mb-0">Yth :</p>
+                        <p class="mb-0">Di : Tempat</p>
                     </div>
                 </div>
-
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2">
-
+            <div class="col-12 mt-5">
+                <p>Bersama ini kami memberikan surat pengantar kepada :</p>
+                <div class="content">
+                    <div class="content-box">
+                        <table class="table">
+                            <tr>
+                                <td>1.</td>
+                                <td>Nama</td>
+                                <td>:</td>
+                                <td>......................................................................................
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>Jenis Kelamin</td>
+                                <td>:</td>
+                                <td>
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="option1" /> Laki-Laki</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                            value="option2" /> Perempuan</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>Tempat Tgl. Lahir</td>
+                                <td>:</td>
+                                <td>......................................................................................
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td>Status Perkawinan</td>
+                                <td>:</td>
+                                <td>
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="option1" /> Menikah</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                            value="option2" /> Belum Menikah</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                            value="option3" /> Duda</label>/ <label> <input class="form-check-input"
+                                            type="checkbox" id="inlineCheckbox4" value="option4" /> Janda</label>/
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5.</td>
+                                <td>Golongan Darah</td>
+                                <td>:</td>
+                                <td>
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="option1" /> A</label>/ <label> <input class="form-check-input"
+                                            type="checkbox" id="inlineCheckbox2" value="option2" /> B</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                            value="option3" /> O</label>/ <label> <input class="form-check-input"
+                                            type="checkbox" id="inlineCheckbox4" value="option4" /> AB</label>/
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6.</td>
+                                <td>Kewarganegaraan</td>
+                                <td>:</td>
+                                <td>
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="option1" /> WNI</label>/ <label> <input class="form-check-input"
+                                            type="checkbox" id="inlineCheckbox2" value="option2" /> WNI </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7.</td>
+                                <td>Pekerjaan</td>
+                                <td>:</td>
+                                <td>......................................................................................
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8.</td>
+                                <td>Agama</td>
+                                <td>:</td>
+                                <td>
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="option1" /> Islam</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                            value="option2" /> Kristen</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                            value="option3" /> Katholik</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
+                                            value="option4" /> Hindu</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                                            value="option5" /> Budha</label>/
+                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
+                                            value="option6" /> Konghucu</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9.</td>
+                                <td>Alamat</td>
+                                <td>:</td>
+                                <td>......................................................................................
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>Untuk Mengurus</td>
+                                <td style="padding-left: 85px">:</td>
+                                <td>
+                                    <ol class="mb-0">
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Kartu Keluarga
+                                                (KK)</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Kartu Tanda Penduduk
+                                                (KTP)</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Surat Pengantar Untuk
+                                                Menikah</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Akte Kelahiran</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Surat Akte
+                                                Kematian</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Surat Keterangan
+                                                Domisili/Usaha</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Surat Ijin
+                                                Keramaian/Hiburan</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> SKKB/SKCK</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Surat Keterangan Ahli
+                                                Waris</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" /> Surat Keterangan
+                                                Pendatang</label>
+                                        </li>
+                                        <li>
+                                            <label> <input class="form-check-input" type="checkbox"
+                                                    id="inlineCheckbox1" value="option1" />
+                                                ..............................................................</label>
+                                        </li>
+                                    </ol>
+                                </td>
+                            </tr>
+                        </table>
+                        <p>
+                            Demikian surat pengantar ini diberikan sebagai bahan proses berikutnya, terimakasih.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
