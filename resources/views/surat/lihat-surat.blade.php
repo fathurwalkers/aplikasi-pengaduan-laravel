@@ -76,7 +76,9 @@
                             <tr>
                                 <td>Nomor</td>
                                 <td class="">:</td>
-                                <td class="ps-3">/SP/RT.031/BA/ /20</td>
+                                <td class="ps-3">
+                                    
+                                </td>
                             </tr>
                             <tr>
                                 <td>Lampiran</td>
@@ -106,7 +108,8 @@
                                 <td>1.</td>
                                 <td>Nama</td>
                                 <td>:</td>
-                                <td>......................................................................................
+                                <td>
+                                    {{ $surat->surat_pelampir_nama }}
                                 </td>
                             </tr>
                             <tr>
@@ -114,17 +117,33 @@
                                 <td>Jenis Kelamin</td>
                                 <td>:</td>
                                 <td>
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                            value="option1" /> Laki-Laki</label>/
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                            value="option2" /> Perempuan</label>
+                                    @php
+                                        $array_jenkel = ['L', 'P'];
+                                    @endphp
+                                    @foreach ($array_jenkel as $item3)
+                                        <label>
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1" @if ($surat->surat_pelampir_jenkel == $item3) checked @endif
+                                                disabled />
+                                            @switch($item3)
+                                                @case('L')
+                                                    Laki-Laki
+                                                @break
+
+                                                @case('P')
+                                                    Perempuan
+                                                @break
+                                            @endswitch
+                                        </label>/
+                                    @endforeach
                                 </td>
                             </tr>
                             <tr>
                                 <td>3.</td>
-                                <td>Tempat Tgl. Lahir</td>
+                                <td>Tgl. Lahir</td>
                                 <td>:</td>
-                                <td>......................................................................................
+                                <td>
+                                    {{ date('d / m / Y', strtotime($surat->surat_pelampir_tgllahir)) }}
                                 </td>
                             </tr>
                             <tr>
@@ -132,13 +151,33 @@
                                 <td>Status Perkawinan</td>
                                 <td>:</td>
                                 <td>
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                            value="option1" /> Menikah</label>/
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                            value="option2" /> Belum Menikah</label>/
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                            value="option3" /> Duda</label>/ <label> <input class="form-check-input"
-                                            type="checkbox" id="inlineCheckbox4" value="option4" /> Janda</label>/
+                                    @php
+                                        $array_status = ['menikah', 'belum_menikah', 'duda', 'janda'];
+                                    @endphp
+                                    @foreach ($array_status as $item4)
+                                        <label>
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1" @if ($surat->surat_pelampir_statusperkawinan == $item4) checked @endif
+                                                disabled />
+                                            @switch($item4)
+                                                @case('menikah')
+                                                    Menikah
+                                                @break
+
+                                                @case('belum_menikah')
+                                                    Belum Menikah
+                                                @break
+
+                                                @case('duda')
+                                                    Duda
+                                                @break
+
+                                                @case('janda')
+                                                    Janda
+                                                @break
+                                            @endswitch
+                                        </label>/
+                                    @endforeach
                                 </td>
                             </tr>
                             <tr>
@@ -146,12 +185,13 @@
                                 <td>Golongan Darah</td>
                                 <td>:</td>
                                 <td>
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                    {{ $surat->surat_pelampir_goldarah }}
+                                    {{-- <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
                                             value="option1" /> A</label>/ <label> <input class="form-check-input"
                                             type="checkbox" id="inlineCheckbox2" value="option2" /> B</label>/
                                     <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
                                             value="option3" /> O</label>/ <label> <input class="form-check-input"
-                                            type="checkbox" id="inlineCheckbox4" value="option4" /> AB</label>/
+                                            type="checkbox" id="inlineCheckbox4" value="option4" /> AB</label>/ --}}
                                 </td>
                             </tr>
                             <tr>
@@ -159,16 +199,23 @@
                                 <td>Kewarganegaraan</td>
                                 <td>:</td>
                                 <td>
-                                    <label> <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                            value="option1" /> WNI</label>/ <label> <input class="form-check-input"
-                                            type="checkbox" id="inlineCheckbox2" value="option2" /> WNI </label>
+                                    @php
+                                        $array_kewarganegaraan = ['WNA', 'WNI'];
+                                    @endphp
+                                    @foreach ($array_kewarganegaraan as $item2)
+                                        <label>
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1" @if ($surat->surat_pelampir_kewarganegaraan == $item2) checked @endif
+                                                disabled /> WNI
+                                        </label>/
+                                    @endforeach
                                 </td>
                             </tr>
                             <tr>
                                 <td>7.</td>
                                 <td>Pekerjaan</td>
                                 <td>:</td>
-                                <td>......................................................................................
+                                <td> {{ $surat->surat_pelampir_pekerjaan }}
                                 </td>
                             </tr>
                             <tr>
@@ -183,7 +230,8 @@
                                     @foreach ($array_agama as $item)
                                         <label>
                                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                value="option1" @if ($surat->surat_pelampir_agama == $item) checked @endif />
+                                                value="option1" @if ($surat->surat_pelampir_agama == $item) checked @endif
+                                                disabled />
                                             {{ $item }}
                                         </label>/
                                     @endforeach

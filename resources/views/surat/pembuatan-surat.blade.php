@@ -81,7 +81,9 @@
                                         name="surat_pelampir_statusperkawinan"
                                         value="{{ old('surat_pelampir_statusperkawinan') }}">
                                         <option default value="menikah">Menikah</option>
-                                        <option value="belum menikah">Belum Menikah</option>
+                                        <option value="belum_menikah">Belum Menikah</option>
+                                        <option value="duda">Duda</option>
+                                        <option value="janda">Janda</option>
                                     </select>
                                 </div>
                             </div>
@@ -143,7 +145,7 @@
                                         <option value="Protestan">Protestan</option>
                                         <option value="katolik">Katolik</option>
                                         <option value="Hindu">Hindu</option>
-                                        <option value="Buddha">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
                                         <option value="konghucu">Konghucu</option>
                                         <option value="lainnya">Lainnya...</option>
                                     </select>
