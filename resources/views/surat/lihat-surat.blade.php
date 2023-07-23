@@ -27,7 +27,7 @@
     </style>
 </head>
 
-<body>
+<body onload="window.print()">
     <div class="container col-xl-10">
         <!-- title -->
         <div class="title d-flex justify-content-center">
@@ -520,7 +520,7 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('.checkedinput').addClass('checked');
+            window.onload = window.print;
         });
     </script>
 </body>
