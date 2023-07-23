@@ -123,7 +123,6 @@ class KeuanganController extends Controller
             'data_anggaran_tanggal' => $data_anggaran_tanggal,
             'updated_at' => now()
         ]);
-        $alert = "Data Anggaran telah berhasil diubah.";
         return redirect()->route('cek-keuangan', $anggaran->id)->with('status', 'Data Anggaran baru telah berhasil ditambahkan.');
     }
 
