@@ -18,34 +18,59 @@
                 <div class="card-body">
                     <div class="container">
 
-                        <form action="{{ route('post-pembuatan-kritiksaran') }}" method="post">
+                        <form action="{{ route('tambah-data-keuangan', $anggaran->id) }}" method="post">
                             @csrf
 
-                            <p class="text-dark">Silahkan masukkan kritik dan saran yang ingin anda sampaikan pada beberapa
-                                form pengajuan
-                                dibawah.</p>
+                            <p class="text-dark">
+                                Silahkan masukkan Data Anggaran baru yang akan ditambahkankan.</p>
 
                             <div class="row">
 
-                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="form-group">
-                                        <label for="kritiksaran_keterangan">
+                                        <label for="data_anggaran_deskripsi">
                                             <h6>Keterangan</h6>
                                         </label>
-                                        <input type="text" class="form-control" id="kritiksaran_keterangan"
-                                            placeholder="Masukkan keterangan pengaduan..." name="kritiksaran_keterangan">
+                                        <input type="text" class="form-control" id="data_anggaran_deskripsi"
+                                            placeholder="Masukkan keterangan pengaduan..." name="data_anggaran_deskripsi">
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="form-group">
-                                        <label for="berita_tanggal">
+                                        <label for="data_anggaran_tanggal">
                                             <h6 class="text-dark">Tanggal Terbit</h6>
                                         </label>
-                                        <input type="date" class="form-control" id="berita_tanggal" name="berita_tanggal"
-                                            required>
+                                        <input type="date" class="form-control" id="data_anggaran_tanggal"
+                                            name="data_anggaran_tanggal" required>
                                     </div>
                                 </div>
+
+                                @switch($anggaran->anggaran_tipe)
+                                    @case('PENERIMAAN')
+                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="data_anggaran_debet">
+                                                    <h6>Jumlah Debet (Penerimaan)</h6>
+                                                </label>
+                                                <input type="number" class="form-control" id="data_anggaran_debet"
+                                                    placeholder="Masukkan keterangan pengaduan..." name="data_anggaran_debet">
+                                            </div>
+                                        </div>
+                                    @break
+
+                                    @case('PENGELUARAN')
+                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="data_anggaran_kredit">
+                                                    <h6>Jumlah Kredit (Pengeluaran)</h6>
+                                                </label>
+                                                <input type="number" class="form-control" id="data_anggaran_kredit"
+                                                    placeholder="Masukkan keterangan pengaduan..." name="data_anggaran_kredit">
+                                            </div>
+                                        </div>
+                                    @break
+                                @endswitch
 
                             </div>
 

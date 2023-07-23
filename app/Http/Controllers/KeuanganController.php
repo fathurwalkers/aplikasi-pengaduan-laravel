@@ -47,7 +47,7 @@ class KeuanganController extends Controller
     public function tambah_keuangan(Request $request)
     {
         $anggaran_nama = $request->anggaran_nama;
-        $array_tipe_anggaran = ["PENGELUARAN", "PENERIMAAN"];
+        $array_tipe_anggaran = ["PENERIMAAN", "PENGELUARAN"];
         foreach ($array_tipe_anggaran as $value) {
             $anggaran = new Anggaran;
             $save_anggaran = $anggaran->create([
@@ -59,6 +59,27 @@ class KeuanganController extends Controller
             $save_anggaran->save();
         }
         return redirect()->route('informasi-keuangan')->with('status', 'Data Anggaran baru telah berhasil ditambahkan.');
+    }
+
+    public function tambah_data_keuangan(Request $request, $id)
+    {
+        $anggaran = Anggaran::find($id);
+        $data_anggaran_deskripsi = $request->data_anggaran_deskripsi;
+        $data_anggaran_debet = $request->data_anggaran_debet;
+        $data_anggaran_kredit = $request->data_anggaran_kredit;
+        $data_anggaran_tanggal = $request->data_anggaran_tanggal;
+        $data_anggaran = new Dataanggaran;
+        $save_data_anggaran = $data_anggaran->create([
+            'data_anggaran_deskripsi' => $data_anggaran_deskripsi,
+            'data_anggaran_debet' => intval($data_anggaran_debet),
+            'data_anggaran_kredit' => intval($data_anggaran_kredit),
+            'data_anggaran_tanggal' => $data_anggaran_tanggal,
+            'anggaran_id' => $anggaran->id,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $save_data_anggaran->save();
+        return redirect()->route('cek-keuangan', $anggaran->id)->with('status', 'Data Anggaran baru telah berhasil ditambahkan.');
     }
 
     public function cek_keuangan($id)

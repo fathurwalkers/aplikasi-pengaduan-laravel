@@ -88,20 +88,27 @@
 
                                             <td class="d-flex justify-content-center">
                                                 <button type="button" id="buttonlihat{{ $item->id }}"
-                                                    class="btn btn-sm btn-info text-dark mr-1"
+                                                    class="btn btn-sm btn-warning text-dark mr-1"
                                                     onclick="location.href='{{ route('cek-keuangan', $item->id) }}'">
                                                     <b>
                                                         Cek Data Anggaran
                                                     </b>
                                                 </button>
                                                 <button type="button" id="buttonlihat{{ $item->id }}"
-                                                    class="btn btn-sm btn-warning text-dark mr-1"
+                                                    class="btn btn-sm btn-success text-dark mr-1"
                                                     onclick="location.href='{{ route('lihat-keuangan', $item->id) }}'">
                                                     <b>
                                                         Lihat
                                                     </b>
                                                 </button>
                                                 @if ($users->login_level == 'admin')
+                                                    <button type="button" id="buttonlihat{{ $item->id }}"
+                                                        class="btn btn-sm btn-info text-dark mr-1" data-toggle="modal"
+                                                        data-target="#modalubah{{ $item->id }}">
+                                                        <b>
+                                                            Ubah
+                                                        </b>
+                                                    </button>
                                                     <button type="button" id="buttonlihat{{ $item->id }}"
                                                         class="btn btn-sm btn-danger text-dark" data-toggle="modal"
                                                         data-target="#modalhapus{{ $item->id }}">
@@ -110,6 +117,7 @@
                                                         </b>
                                                     </button>
                                                 @endif
+
                                                 <!-- Modal Hapus -->
                                                 <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -143,6 +151,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- END Modal Hapus -->
+
                                             </td>
                                         </tr>
                                     @endforeach
